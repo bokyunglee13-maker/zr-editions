@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC</title>
-<meta name="description" content="POLYC 개인전 《비단일 非單一 · Not Single》 × ㅈㄹ막걸리. 2026.06.20–06.28, 플라츠2(성수). 학호도·서울야경 한정 에디션 막걸리." />
+<title data-i18n="meta.title">비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC</title>
+<meta name="description" data-i18n="meta.desc" content="POLYC 개인전 《비단일 非單一 · Not Single》 × ㅈㄹ막걸리. 2026.06.20–06.28, 플라츠2(성수)." />
 
-<!-- 링크 공유 미리보기 -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="ZR Makgeolli × POLYC" />
 <meta property="og:title" content="비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC" />
-<meta property="og:description" content="POLYC 개인전 × ㅈㄹ막걸리. 2026.06.20–06.28 · 플라츠2 성수. 학호도·서울야경 한정 에디션." />
+<meta property="og:description" content="POLYC 개인전 × ㅈㄹ막걸리. 2026.06.20–06.28 · 플라츠2 성수. 학호도·서울의 조각들 한정 에디션." />
 <meta property="og:image" content="https://zr-editions.vercel.app/assets/kv.png" />
 <meta property="og:url" content="https://zr-editions.vercel.app/" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -21,42 +20,26 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
 
 <!-- ===========================================================
-     CONFIG — 행사 정보. 이 블록만 채우면 전체 페이지에 반영됩니다.
+     CONFIG — 언어 무관 사실값 (날짜/링크). 라벨·주소는 i18n.
 =========================================================== -->
 <script>
   const EXHIBIT = {
-    vol:        "VOL. 02",
-    title:      "비단일",
-    titleHanja: "非單一",
-    titleEn:    "Not Single",
-    artist:     "POLYC",
-    dateLabel:  "2026.06.20 – 06.28",
-    venue:      "플라츠2 (PLATZ 2)",
-    address:    "서울시 성동구 뚝섬로17길 35",
-    hours:      "11:00 – 20:00",
-    mapUrl:     "https://map.naver.com/p/search/서울특별시 성동구 뚝섬로17길 35",
-    instaUrl:   "https://www.instagram.com/zr.makgeolli/"
+    dateLabel: "2026.06.20 – 06.28",
+    mapUrl:    "https://map.naver.com/p/search/서울특별시 성동구 뚝섬로17길 35",
+    instaUrl:  "https://www.instagram.com/zr.makgeolli/"
   };
 </script>
 
 <style>
-  /* ---------- Paperlogy 한글 웹폰트 ---------- */
-  @font-face{ font-family:'Paperlogy'; font-weight:400; font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-4Regular.woff2') format('woff2'); }
-  @font-face{ font-family:'Paperlogy'; font-weight:500; font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-5Medium.woff2') format('woff2'); }
-  @font-face{ font-family:'Paperlogy'; font-weight:700; font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-7Bold.woff2') format('woff2'); }
-  @font-face{ font-family:'Paperlogy'; font-weight:900; font-display:swap;
-    src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-9Black.woff2') format('woff2'); }
+  @font-face{ font-family:'Paperlogy'; font-weight:400; font-display:swap; src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-4Regular.woff2') format('woff2'); }
+  @font-face{ font-family:'Paperlogy'; font-weight:500; font-display:swap; src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-5Medium.woff2') format('woff2'); }
+  @font-face{ font-family:'Paperlogy'; font-weight:700; font-display:swap; src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-7Bold.woff2') format('woff2'); }
+  @font-face{ font-family:'Paperlogy'; font-weight:900; font-display:swap; src:url('https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/Paperlogy-9Black.woff2') format('woff2'); }
 
-  /* ===========================================================
-     PASTEL LILAC — 디자인 토큰 (POLYC 콜라보 라벨에서 추출)
-  =========================================================== */
   :root{
-    --lav-bg:  #F3EEFB; --lilac:#E4DAF6; --wisteria:#B9A7E6;
-    --violet:  #7A5CD0; --peri:#5C7CDA; --cobalt:#2E3192;
-    --magenta: #D46AAE; --pink:#EBB3D4; --teal:#2FA7A0; --marigold:#F2C24A;
+    --lav-bg:#F3EEFB; --lilac:#E4DAF6; --wisteria:#B9A7E6;
+    --violet:#7A5CD0; --peri:#5C7CDA; --cobalt:#2E3192;
+    --magenta:#D46AAE; --pink:#EBB3D4; --teal:#2FA7A0; --marigold:#F2C24A;
     --ink:#2A2350; --white:#FFFFFF;
     --display:'Archivo','Paperlogy',sans-serif;
     --mono:'Space Mono','Paperlogy',ui-monospace,monospace;
@@ -69,29 +52,32 @@
   img{ display:block; max-width:100%; }
   a{ color:inherit; }
   .wrap{ max-width:1080px; margin:0 auto; padding:0 24px; }
-
   .display{ font-family:var(--display); font-weight:900; letter-spacing:-.02em; line-height:1.0; }
   .eyebrow{ font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.18em; text-transform:uppercase; color:var(--violet); }
   .kr-head{ font-family:'Paperlogy',var(--display); font-weight:900; }
 
-  /* ---------- 네비 ---------- */
+  /* 네비 */
   nav{ position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
-    padding:14px 24px; backdrop-filter:blur(10px); background:rgba(243,238,251,.72); border-bottom:1px solid rgba(122,92,208,.16); }
-  nav .logo{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:18px; color:var(--ink); text-decoration:none; }
-  nav .navlinks{ display:flex; gap:22px; align-items:center; }
-  nav .navlinks a{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:.7; }
-  nav .navlinks a:hover{ opacity:1; color:var(--violet); }
-  @media(max-width:680px){ nav .navlinks a:not(.iglink){ display:none; } }
+    padding:12px 24px; backdrop-filter:blur(10px); background:rgba(243,238,251,.74); border-bottom:1px solid rgba(122,92,208,.16); }
+  nav .logo{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:17px; color:var(--ink); text-decoration:none; }
+  nav .navmid{ display:flex; gap:20px; align-items:center; }
+  nav .navmid a{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:.7; }
+  nav .navmid a:hover{ opacity:1; color:var(--violet); }
+  .lang{ display:flex; gap:6px; align-items:center; }
+  .lang button{ padding:0; border:0; background:none; cursor:pointer; opacity:.45; line-height:0; }
+  .lang button img{ display:block; width:22px; height:15px; object-fit:cover; border-radius:2px; box-shadow:0 0 0 1px rgba(42,35,80,.18); }
+  .lang button[aria-pressed="true"]{ opacity:1; box-shadow:0 0 0 2px var(--violet); border-radius:3px; }
+  @media(max-width:780px){ nav .navmid{ display:none; } }
 
-  /* ---------- 버튼 ---------- */
   .btn{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-weight:700; font-size:14px; letter-spacing:.04em;
     padding:14px 26px; border-radius:999px; text-decoration:none; border:0; cursor:pointer; transition:transform .15s, background .15s; }
   .btn:hover{ transform:translateY(-2px); }
   .btn--violet{ background:var(--violet); color:#fff; }
   .btn--peri{ background:var(--peri); color:#fff; }
   .btn--ghost{ background:transparent; color:var(--violet); border:1.5px solid var(--violet); }
+  .btn--sm{ font-size:13px; padding:11px 18px; }
 
-  /* ---------- HERO ---------- */
+  /* HERO */
   .hero{ min-height:100vh; display:flex; align-items:center; padding:120px 0 60px;
     background:radial-gradient(120% 90% at 80% 10%, var(--wisteria) 0%, var(--lilac) 45%, var(--lav-bg) 100%); }
   .hero-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
@@ -99,20 +85,33 @@
   .hero h1{ font-size:clamp(40px,7vw,72px); margin-bottom:10px; }
   .hero h1 .hanja{ color:var(--magenta); font-weight:700; }
   .hero .en{ font-family:var(--mono); font-size:clamp(15px,2vw,18px); letter-spacing:.14em; text-transform:uppercase; color:var(--cobalt); margin-bottom:18px; }
-  .hero .sub{ font-size:clamp(16px,2vw,19px); max-width:32ch; margin-bottom:12px; }
+  .hero .sub{ font-size:clamp(16px,2vw,19px); max-width:34ch; margin-bottom:12px; }
   .hero .meta{ font-family:var(--mono); font-size:14px; letter-spacing:.04em; color:var(--violet); margin-bottom:28px; }
-  .hero-art{ position:relative; }
   .hero-art img{ width:100%; border-radius:20px; box-shadow:0 30px 60px rgba(46,49,146,.22); }
   @media(max-width:820px){ .hero-grid{ grid-template-columns:1fr; gap:32px; } .hero-art{ order:-1; max-width:460px; } }
 
-  /* ---------- 섹션 공통 ---------- */
-  section.pad{ padding:88px 0; }
-  .sec-head{ margin-bottom:36px; }
+  section.pad{ padding:84px 0; }
+  .sec-head{ margin-bottom:34px; }
   .sec-head .eyebrow{ display:block; margin-bottom:12px; }
   .sec-head h2{ font-size:clamp(28px,4.5vw,46px); }
-  .sec-head p.lead{ color:#5a527e; margin-top:12px; max-width:54ch; font-size:16px; }
+  .sec-head p.lead{ color:#5a527e; margin-top:12px; max-width:56ch; font-size:16px; }
 
-  /* ---------- 전시 정보 카드 ---------- */
+  /* ABOUT */
+  .about-intro .big-cho{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(60px,12vw,120px); color:var(--violet); letter-spacing:.04em; line-height:1; margin-bottom:10px; }
+  .about-intro .lead-xl{ font-size:clamp(17px,2.4vw,22px); max-width:62ch; color:var(--ink); line-height:1.75; }
+
+  /* MEANING */
+  .meaning{ background:var(--cobalt); color:#fff; position:relative; overflow:hidden; }
+  .meaning .eyebrow{ color:var(--wisteria); }
+  .meaning h2{ color:#fff; position:relative; z-index:3; }
+  .mstage{ position:relative; height:420px; margin-top:10px; }
+  .kw-big{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(150px,34vw,360px); color:rgba(185,167,230,.30); letter-spacing:.02em; line-height:1; z-index:1; pointer-events:none; white-space:nowrap; }
+  .kw{ position:absolute; font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(16px,2.3vw,28px); color:rgba(255,255,255,.85); z-index:2; animation:mfloat 9s ease-in-out infinite; white-space:nowrap; }
+  @keyframes mfloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-14px); } }
+  .meaning .mnote{ color:#C9C2EC; font-size:15px; max-width:54ch; margin-top:6px; }
+  @media(max-width:680px){ .mstage{ height:360px; } }
+
+  /* 전시 정보 */
   .info-card{ background:var(--white); border-radius:24px; padding:40px; border:1px solid rgba(122,92,208,.14);
     box-shadow:0 20px 40px rgba(122,92,208,.10); display:grid; grid-template-columns:auto 1fr; gap:34px; align-items:center; }
   .info-card .vol{ font-family:var(--mono); font-weight:700; color:var(--violet); letter-spacing:.12em; font-size:14px; }
@@ -121,19 +120,19 @@
   .info-card .artist{ font-size:17px; color:var(--magenta); margin-bottom:22px; }
   .info-rows{ display:grid; gap:12px; }
   .info-rows .row{ display:flex; gap:14px; font-size:15px; }
-  .info-rows .row b{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--violet); min-width:78px; padding-top:2px; }
+  .info-rows .row b{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--violet); min-width:84px; padding-top:2px; }
   .poster{ width:250px; aspect-ratio:3/4; object-fit:cover; border-radius:16px; box-shadow:0 16px 32px rgba(46,49,146,.20); }
   @media(max-width:680px){ .info-card{ grid-template-columns:1fr; gap:24px; padding:28px; } .poster{ width:100%; max-width:300px; margin:0 auto; } }
 
-  /* ---------- 작가 소개 (딥 섹션) ---------- */
+  /* 작가 */
   .artist-sec{ background:var(--cobalt); color:#fff; }
   .artist-sec .eyebrow{ color:var(--wisteria); }
   .artist-sec h2{ color:#fff; }
   .artist-sec p{ font-size:clamp(16px,2.1vw,20px); max-width:60ch; color:#E9E4FB; margin-bottom:18px; }
   .credits{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-  .credit{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); }
+  .credit{ font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); }
 
-  /* ---------- 에디션 소개 ---------- */
+  /* 에디션 */
   .ed-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
   .ed{ background:var(--white); border:1px solid rgba(122,92,208,.14); border-radius:24px; overflow:hidden; box-shadow:0 16px 36px rgba(122,92,208,.10); }
   .ed .ed-img{ background:var(--wisteria); }
@@ -142,24 +141,22 @@
   .ed .ed-no{ font-family:var(--mono); font-weight:700; color:var(--violet); font-size:12px; letter-spacing:.12em; }
   .ed h3{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:26px; margin:8px 0 2px; }
   .ed h3 .hj{ color:var(--magenta); font-weight:700; font-size:.62em; margin-left:8px; }
-  .ed .ed-en{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#9a92bf; margin-bottom:14px; }
+  .ed .ed-en{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:#9a92bf; margin-bottom:14px; }
   .ed p{ font-size:15px; color:#5a527e; }
   .ed .ed-spec{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
   .ed .ed-spec span{ font-family:var(--mono); font-size:11px; letter-spacing:.04em; padding:6px 12px; border-radius:999px; background:var(--lilac); color:var(--cobalt); }
   @media(max-width:680px){ .ed-grid{ grid-template-columns:1fr; } }
 
-  /* ---------- 현장 체험 ---------- */
-  .exp-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
-  .exp{ background:var(--lilac); border-radius:20px; padding:28px; }
-  .exp .n{ font-family:var(--mono); font-weight:700; color:var(--violet); font-size:13px; letter-spacing:.1em; }
-  .exp h4{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:20px; margin:10px 0 8px; }
-  .exp p{ font-size:14px; color:#5a527e; }
+  /* TASTE */
+  .taste .lead-xl{ font-size:clamp(16px,2.2vw,20px); max-width:64ch; color:var(--ink); line-height:1.75; }
+  .taste-spec{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .taste-spec span{ font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:9px 16px; border-radius:999px; background:var(--lilac); color:var(--cobalt); }
 
-  /* ---------- 이름 생성기 ---------- */
+  /* 생성기 */
   .gen{ background:linear-gradient(160deg, var(--wisteria), var(--lilac)); border-radius:28px; padding:48px 40px; text-align:center; }
   .gen .eyebrow{ display:block; margin-bottom:14px; }
-  .gen h2{ font-size:clamp(26px,4vw,40px); margin-bottom:8px; }
-  .gen p.lead{ color:#5a527e; margin-bottom:26px; }
+  .gen h2{ font-size:clamp(26px,4vw,40px); margin-bottom:10px; }
+  .gen p.lead{ color:#5a527e; margin-bottom:26px; white-space:pre-line; font-size:15px; }
   .gen-form{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; max-width:440px; margin:0 auto; }
   .gen-form input{ flex:1; min-width:200px; font-family:var(--body); font-size:17px; padding:15px 20px; border-radius:999px; border:1.5px solid rgba(122,92,208,.30); background:#fff; color:var(--ink); outline:none; }
   .gen-form input:focus{ border-color:var(--violet); }
@@ -171,7 +168,45 @@
   .gen-actions{ display:flex; gap:10px; justify-content:center; margin-top:22px; flex-wrap:wrap; }
   .note{ font-size:12px; color:#7a73a0; margin-top:18px; }
 
-  /* ---------- 방문 ---------- */
+  /* 궁합 MATCH */
+  .match{ background:var(--white); }
+  .match h2 .hl{ color:var(--magenta); }
+  .match-panel{ background:var(--lilac); border-radius:24px; padding:30px; max-width:620px; }
+  .match-row{ display:flex; align-items:flex-end; gap:10px; }
+  .match-field{ flex:1; }
+  .match-field label{ font-family:var(--mono); font-size:11px; font-weight:700; text-transform:uppercase; color:var(--violet); letter-spacing:.04em; display:block; margin-bottom:7px; }
+  .match-field input{ width:100%; border:1.5px solid rgba(122,92,208,.30); border-radius:14px; background:#fff; padding:13px 10px; font-family:'Paperlogy',var(--display); font-weight:700; font-size:18px; text-align:center; color:var(--ink); outline:none; }
+  .match-field input:focus{ border-color:var(--violet); }
+  .swap{ width:48px; height:48px; flex:0 0 auto; margin-bottom:1px; border:1.5px solid var(--violet); background:#fff; color:var(--violet); border-radius:999px; font-size:18px; cursor:pointer; transition:transform .25s; }
+  .swap:hover{ transform:rotate(180deg); }
+  .match-actions{ display:flex; gap:10px; justify-content:center; margin-top:18px; }
+  .match-hint{ text-align:center; font-size:12px; color:#7a73a0; margin-top:14px; }
+  #match-result{ display:none; margin-top:24px; background:#fff; border:1px solid rgba(122,92,208,.16); border-radius:24px; padding:28px 24px; max-width:620px; }
+  #match-result.show{ display:block; animation:pop .4s ease; }
+  .m-chips{ display:flex; flex-direction:column; align-items:center; gap:8px; margin-bottom:16px; min-height:48px; }
+  .m-chip-row{ display:flex; flex-wrap:wrap; gap:7px; justify-content:center; }
+  .m-chip{ border:1.5px solid var(--violet); border-radius:10px; padding:5px 9px; text-align:center; line-height:1.1; opacity:0; transform:translateY(8px); transition:.25s; background:#fff; }
+  .m-chip.in{ opacity:1; transform:none; }
+  .m-chip b{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:18px; display:block; color:var(--ink); }
+  .m-chip span{ font-family:var(--mono); font-size:10px; color:#7a73a0; }
+  .m-chip .num{ color:var(--magenta); font-weight:700; }
+  .m-tags{ display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:16px; }
+  .m-pill{ font-family:var(--mono); font-size:11px; font-weight:700; background:var(--lilac); border:1px solid var(--violet); border-radius:999px; padding:5px 12px; color:var(--cobalt); }
+  .gauge-h{ display:flex; justify-content:space-between; font-family:var(--mono); font-size:12px; font-weight:700; text-transform:uppercase; color:var(--violet); margin-bottom:7px; }
+  .gauge{ height:16px; border:1.5px solid var(--violet); border-radius:999px; background:#fff; overflow:hidden; }
+  .gauge i{ display:block; height:100%; width:0; background:linear-gradient(90deg,var(--wisteria),var(--magenta)); transition:width 1s cubic-bezier(.2,.8,.2,1); }
+  .score-wrap{ text-align:center; margin:18px 0 6px; }
+  .m-emoji{ font-size:44px; }
+  .score-lab{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:19px; }
+  .score{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(58px,16vw,100px); color:var(--magenta); line-height:1; }
+  .verdict{ text-align:center; font-weight:700; font-size:16px; line-height:1.5; margin:8px auto 0; max-width:420px; color:var(--ink); }
+  .who{ text-align:center; font-size:15px; background:var(--lilac); border-radius:12px; padding:11px; margin:16px 0 10px; color:var(--ink); }
+  .who b.a{ color:var(--magenta); } .who b.b{ color:var(--peri); }
+  .dir{ display:flex; justify-content:center; gap:22px; font-family:var(--mono); font-size:13px; color:#5a527e; }
+  .dir b{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:16px; color:var(--ink); }
+  .m-res-actions{ display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:22px; }
+
+  /* 방문 */
   .visit-grid{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
   .visit-card{ background:#fff; border:1px solid rgba(122,92,208,.14); border-radius:20px; padding:30px; }
   .visit-card .eyebrow{ display:block; margin-bottom:10px; }
@@ -179,160 +214,128 @@
   .visit-card p{ font-size:15px; color:#5a527e; margin-top:6px; }
   @media(max-width:680px){ .visit-grid{ grid-template-columns:1fr; } }
 
-  /* ---------- 푸터 ---------- */
   footer{ background:var(--cobalt); color:#fff; padding:60px 0 48px; text-align:center; margin-top:20px; }
   footer .flogo{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:26px; margin-bottom:8px; }
   footer p{ color:#C9C2EC; font-size:14px; }
   footer .fnext{ margin:26px 0 8px; }
   footer .fsns{ font-family:var(--mono); font-size:13px; letter-spacing:.06em; color:var(--wisteria); text-decoration:none; }
 
-  /* ---------- ABOUT 브랜드 인트로 ---------- */
-  .about-intro .big-cho{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(60px,12vw,120px); color:var(--violet); letter-spacing:.04em; line-height:1; margin-bottom:10px; }
-  .about-intro .lead-xl{ font-size:clamp(17px,2.4vw,22px); max-width:62ch; color:var(--ink); line-height:1.75; }
-  .about-intro .lead-xl b{ color:var(--violet); }
-
-  /* ---------- MEANING 키네틱 ---------- */
-  .meaning{ background:var(--cobalt); color:#fff; position:relative; overflow:hidden; }
-  .meaning .eyebrow{ color:var(--wisteria); }
-  .meaning h2{ color:#fff; position:relative; z-index:3; }
-  .mstage{ position:relative; height:420px; margin-top:10px; }
-  .mstage .big{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(150px,34vw,360px); color:rgba(185,167,230,.30); letter-spacing:.02em; line-height:1; z-index:1; pointer-events:none; }
-  .mword{ position:absolute; font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(18px,2.4vw,30px); color:rgba(255,255,255,.85); z-index:2; animation:mfloat 6s ease-in-out infinite; }
-  @keyframes mfloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
-  @media(max-width:680px){ .mstage{ height:360px; } .mword{ font-size:16px; } }
-
-  /* ---------- TASTE 맛 설명 + 제조 포인트 ---------- */
-  .taste .lead-xl{ font-size:clamp(16px,2.2vw,20px); max-width:64ch; color:var(--ink); line-height:1.75; }
-  .taste-spec{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-  .taste-spec span{ font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:9px 16px; border-radius:999px; background:var(--lilac); color:var(--cobalt); }
-
   #card-canvas{ display:none; }
 </style>
 </head>
 <body>
 
-<!-- ================= 네비 ================= -->
+<!-- 네비 -->
 <nav>
   <a href="#top" class="logo">ㅈㄹ막걸리 <span style="color:var(--magenta)">×</span> POLYC</a>
-  <div class="navlinks">
+  <div class="navmid">
     <a href="#about">ABOUT</a>
     <a href="#meaning">MEANING</a>
     <a href="#editions">EDITIONS</a>
-    <a href="#taste">TASTE</a>
     <a href="#name">NAME</a>
+    <a href="#match">MATCH</a>
     <a href="#visit">VISIT</a>
-    <a href="#" class="iglink" id="nav-ig" target="_blank" rel="noopener">INSTAGRAM</a>
+  </div>
+  <div class="lang" id="lang">
+    <button data-lang="ko" aria-pressed="true" aria-label="한국어" title="한국어"><img src="https://flagcdn.com/kr.svg" width="22" height="15" alt="KO"></button>
+    <button data-lang="en" aria-pressed="false" aria-label="English" title="English"><img src="https://flagcdn.com/us.svg" width="22" height="15" alt="EN"></button>
+    <button data-lang="ja" aria-pressed="false" aria-label="日本語" title="日本語"><img src="https://flagcdn.com/jp.svg" width="22" height="15" alt="JA"></button>
+    <button data-lang="zh" aria-pressed="false" aria-label="中文" title="中文"><img src="https://flagcdn.com/cn.svg" width="22" height="15" alt="ZH"></button>
   </div>
 </nav>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <span class="eyebrow" id="hero-vol">VOL. 02 · POLYC × ZR MAKGEOLLI</span>
-      <h1 class="display kr-head"><span id="hero-title">비단일</span> <span class="hanja" id="hero-hanja">非單一</span></h1>
-      <div class="en" id="hero-en">NOT SINGLE</div>
-      <p class="sub">POLYC 개인전과 함께 빚은<br>파스텔 보라 한정 에디션 막걸리.</p>
-      <p class="meta" id="hero-meta">2026.06.20 – 06.28 · 플라츠2 성수</p>
+      <span class="eyebrow">VOL. 02 · POLYC × ZR MAKGEOLLI</span>
+      <h1 class="display kr-head">비단일 <span class="hanja">非單一</span></h1>
+      <div class="en">NOT SINGLE</div>
+      <p class="sub" data-i18n="hero.sub">POLYC 개인전과 함께 빚은<br>파스텔 보라 한정 에디션 막걸리.</p>
+      <p class="meta" id="hero-meta">2026.06.20 – 06.28 · 플라츠2</p>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
-        <a href="#visit" class="btn btn--violet">오시는 길 →</a>
-        <a href="#editions" class="btn btn--ghost">에디션 보기</a>
+        <a href="#visit" class="btn btn--violet" data-i18n="hero.cta1">오시는 길 →</a>
+        <a href="#editions" class="btn btn--ghost" data-i18n="hero.cta2">에디션 보기</a>
       </div>
     </div>
     <div class="hero-art">
-      <img src="/assets/kv.png" alt="ㅈㄹ막걸리 × POLYC 비단일 키비주얼 — 학과 호랑이" />
+      <img src="/assets/kv.png" alt="ㅈㄹ막걸리 × POLYC 비단일 키비주얼" />
     </div>
   </div>
 </section>
 
-<!-- ================= ABOUT — ㅈㄹ막걸리 소개 ================= -->
+<!-- ABOUT -->
 <section class="pad about-intro" id="about">
   <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">About ㅈㄹ막걸리</span>
-    </div>
+    <div class="sec-head"><span class="eyebrow">About ㅈㄹ막걸리</span></div>
     <div class="big-cho kr-head">ㅈㄹ막걸리</div>
-    <p class="lead-xl">위트있게 만나는 <b>MZ 막걸리</b>. 무겁게 들이켜는 전통주가 아니라, 친구와 깔깔대며 가볍게 기울이는 한 잔.
-       한글 초성 'ㅈㄹ'을 큼직하게 박은 라벨처럼, 재밌지만 맛은 진지함으로 채웠습니다.</p>
+    <p class="lead-xl" data-i18n="intro.body">위트있게 만나는 MZ 막걸리. 무겁게 들이켜는 전통주가 아니라, 친구와 깔깔대며 가볍게 기울이는 한 잔. 한글 초성 'ㅈㄹ'을 큼직하게 박은 라벨처럼, 재밌지만 맛은 진지함으로 채웠습니다.</p>
   </div>
 </section>
 
-<!-- ================= MEANING — ㅈㄹ 뜻 ================= -->
+<!-- MEANING -->
 <section class="pad meaning" id="meaning">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Meaning</span>
-      <h2 class="display kr-head">ㅈㄹ, 무슨 뜻이게요?</h2>
+      <h2 class="display kr-head" data-i18n="mean.h">ㅈㄹ, 무슨 뜻일까요?</h2>
     </div>
-    <div class="mstage" aria-hidden="true">
-      <div class="big kr-head">ㅈㄹ</div>
-      <span class="mword" style="top:16%; left:10%; animation-delay:0s;">재력</span>
-      <span class="mword" style="top:9%; left:72%; animation-delay:.8s;">자랑</span>
-      <span class="mword" style="top:40%; left:26%; animation-delay:1.6s;">진리</span>
-      <span class="mword" style="top:28%; left:55%; animation-delay:.4s;">지랄</span>
-      <span class="mword" style="top:46%; left:82%; animation-delay:2.2s;">정력</span>
-      <span class="mword" style="top:60%; left:7%; animation-delay:1.2s;">조롱</span>
-      <span class="mword" style="top:70%; left:22%; animation-delay:2.6s;">잘래?</span>
-      <span class="mword" style="top:82%; left:38%; animation-delay:.6s;">졸라</span>
-      <span class="mword" style="top:88%; left:54%; animation-delay:1.9s;">주류</span>
-      <span class="mword" style="top:74%; left:74%; animation-delay:1.0s;">재롱</span>
-    </div>
-    <p style="color:#C9C2EC; font-size:15px; max-width:52ch; margin-top:6px;">정답은 없어요. 보는 사람 마음대로 — 가볍게, 위트있게.
-       <span style="color:#fff;">Call it whatever you want.</span></p>
+    <div class="mstage" id="kinetic-stage" aria-hidden="true"></div>
+    <p class="mnote" data-i18n="mean.note">정답은 없어요. 보는 사람 마음대로 — 가볍게, 위트있게. Call it whatever you want.</p>
   </div>
 </section>
 
-<!-- ================= 전시 정보 ================= -->
+<!-- 전시 정보 -->
 <section class="pad" id="exhibition">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Exhibition</span>
-      <h2 class="display kr-head">이번 에디션</h2>
+      <h2 class="display kr-head" data-i18n="ex.h">이번 에디션</h2>
     </div>
     <div class="info-card">
       <img class="poster" src="/assets/poster.png" alt="POLYC 비단일 전시 포스터" />
       <div>
-        <div class="vol" id="info-vol">VOL. 02</div>
-        <h3><span id="info-title">비단일</span><span class="hj" id="info-hanja">非單一</span></h3>
-        <div class="artist" id="info-artist">POLYC 개인전 · Not Single</div>
+        <div class="vol">VOL. 02</div>
+        <h3>비단일<span class="hj">非單一</span></h3>
+        <div class="artist" data-i18n="ex.artist">POLYC 개인전 · Not Single</div>
         <div class="info-rows">
-          <div class="row"><b>Date</b><span id="info-date">2026.06.20 – 06.28</span></div>
-          <div class="row"><b>Venue</b><span id="info-venue">플라츠2 (PLATZ 2)</span></div>
-          <div class="row"><b>Address</b><span id="info-address">서울시 성동구 뚝섬로17길 35</span></div>
-          <div class="row"><b>Hours</b><span id="info-hours">11:00 – 20:00</span></div>
+          <div class="row"><b data-i18n="ex.dateL">Date</b><span id="ex-date">2026.06.20 – 06.28</span></div>
+          <div class="row"><b data-i18n="ex.venueL">Venue</b><span data-i18n="loc.venue">플라츠2 (PLATZ 2)</span></div>
+          <div class="row"><b data-i18n="ex.addrL">Address</b><span data-i18n="loc.addr">서울시 성동구 뚝섬로17길 35</span></div>
+          <div class="row"><b data-i18n="ex.hoursL">Hours</b><span data-i18n="loc.hours">11:00 – 20:00</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 작가 소개 ================= -->
+<!-- 작가 -->
 <section class="pad artist-sec" id="artist">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Artist</span>
-      <h2 class="display kr-head">POLYC — 글로벌 아티스트</h2>
+      <h2 class="display kr-head" data-i18n="ar.h">POLYC — 글로벌 아티스트</h2>
     </div>
-    <p>POLYC는 강렬한 색채와 한국 전통 도상을 현대적으로 재해석하는 글로벌 아티스트입니다.
-       BTS를 비롯한 글로벌 아티스트, 타투이스트 권은비 등 다양한 분야와 작업을 이어왔습니다.</p>
-    <p>개인전 <b style="color:#fff;">《비단일 非單一 · Not Single》</b>에서는 회화와 막걸리 라벨을 가로질러,
-       하나로 규정되지 않는 다층적인 세계를 ㅈㄹ막걸리와 함께 펼칩니다.</p>
+    <p data-i18n="ar.body1">POLYC는 강렬한 색채와 한국 전통 도상을 현대적으로 재해석하는 글로벌 아티스트입니다. BTS를 비롯한 글로벌 아티스트, 타투이스트 권은비 등 다양한 분야와 작업을 이어왔습니다.</p>
+    <p data-i18n="ar.body2">개인전 《비단일 非單一 · Not Single》에서는 회화와 막걸리 라벨을 가로질러, 하나로 규정되지 않는 다층적인 세계를 ㅈㄹ막걸리와 함께 펼칩니다.</p>
     <div class="credits">
-      <span class="credit">BTS</span>
-      <span class="credit">타투이스트 권은비</span>
-      <span class="credit">글로벌 아티스트 협업</span>
-      <span class="credit">전통 도상 재해석</span>
+      <span class="credit" data-i18n="ar.t1">BTS</span>
+      <span class="credit" data-i18n="ar.t2">권은비</span>
+      <span class="credit" data-i18n="ar.t3">타투이스트</span>
+      <span class="credit" data-i18n="ar.t4">글로벌 아티스트 협업</span>
+      <span class="credit" data-i18n="ar.t5">전통 재해석</span>
+      <span class="credit" data-i18n="ar.t6">끊임없는 변화</span>
     </div>
   </div>
 </section>
 
-<!-- ================= 에디션 소개 ================= -->
+<!-- 에디션 -->
 <section class="pad" id="editions">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Limited Editions</span>
-      <h2 class="display kr-head">두 개의 한정 에디션</h2>
-      <p class="lead">POLYC의 그림이 라벨이 된 ㅈㄹ막걸리 콜라보 에디션. 전시 기간 동안 플라츠2에서만 만날 수 있어요.</p>
+      <h2 class="display kr-head" data-i18n="ed.h">두 개의 한정 에디션</h2>
+      <p class="lead" data-i18n="ed.lead">POLYC의 그림이 라벨이 된 ㅈㄹ막걸리 콜라보 에디션. 전시 기간 동안 플라츠2에서만 만날 수 있어요.</p>
     </div>
     <div class="ed-grid">
       <div class="ed">
@@ -340,105 +343,136 @@
         <div class="ed-body">
           <div class="ed-no">EDITION 01</div>
           <h3>학호도<span class="hj">鶴虎圖</span></h3>
-          <div class="ed-en">Crane &amp; Tiger</div>
-          <p>학(鶴)과 호랑이(虎)를 함께 담은 전통 민화를 POLYC의 색으로 재해석했습니다.
-             상서로운 학과 기개의 호랑이, 그리고 전통 매듭이 보랏빛 결 위에 어우러져요.</p>
-          <div class="ed-spec"><span>춘천쌀 100%</span><span>ALC 7%</span><span>650ML</span></div>
+          <div class="ed-en">Tiger and Crane through Cubism</div>
+          <p data-i18n="ed1.desc">학(鶴)과 호랑이(虎)를 함께 담은 전통 민화를 POLYC의 큐비즘으로 재해석했습니다. 상서로운 학과 기개의 호랑이가 보랏빛 조각으로 어우러져요.</p>
+          <div class="ed-spec"><span data-i18n="ed.spec1">춘천쌀 100%</span><span>ALC 7%</span><span>650ML</span></div>
         </div>
       </div>
       <div class="ed">
-        <div class="ed-img"><img src="/assets/ed-seoul.png" alt="서울야경 에디션 막걸리" /></div>
+        <div class="ed-img"><img src="/assets/ed-seoul.png" alt="서울의 조각들 에디션 막걸리" /></div>
         <div class="ed-body">
           <div class="ed-no">EDITION 02</div>
-          <h3>서울야경<span class="hj">夜景</span></h3>
-          <div class="ed-en">Seoul Night View</div>
-          <p>네온빛 다리와 타워, 한강의 밤 — 서울의 야경을 팝아트로 옮긴 에디션.
-             도시의 빛이 라벨 위에서 반짝이는, 가장 서울다운 한 병입니다.</p>
-          <div class="ed-spec"><span>춘천쌀 100%</span><span>ALC 7%</span><span>650ML</span></div>
+          <h3>서울의 조각들</h3>
+          <div class="ed-en">Pieces of Seoul</div>
+          <p data-i18n="ed2.desc">네온빛 다리와 타워, 한강의 밤 — 서울의 풍경을 조각조각 모은 에디션. 도시의 빛이 라벨 위에서 반짝이는, 가장 서울다운 한 병입니다.</p>
+          <div class="ed-spec"><span data-i18n="ed.spec1">춘천쌀 100%</span><span>ALC 7%</span><span>650ML</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 맛 설명 + 제조 포인트 ================= -->
+<!-- TASTE -->
 <section class="pad taste" id="taste" style="background:var(--white);">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Taste</span>
-      <h2 class="display kr-head">어떤 맛이냐면</h2>
+      <h2 class="display kr-head" data-i18n="taste.h">어떤 맛이냐면</h2>
     </div>
-    <p class="lead-xl">당일 도정한 춘천쌀 100%에 강원도 물과 누룩만으로 빚어 50일간 저온 숙성했습니다. 인공감미료·첨가물 0%.
-       잘 익은 참외와 멜론을 닮은 풍부한 단맛, 수작업 여과로 완성한 벨벳처럼 부드러운 질감.
-       가볍게 톡 쏘는 청량감과 낮은 도수로 누구나 부담 없이 즐길 수 있습니다.</p>
+    <p class="lead-xl" data-i18n="taste.body">당일 도정한 춘천쌀 100%에 강원도 물과 누룩만으로 빚어 50일간 저온 숙성했습니다. 인공감미료·첨가물 0%. 잘 익은 참외와 멜론을 닮은 풍부한 단맛, 수작업 여과로 완성한 생크림처럼 부드러운 질감. 가볍게 톡 쏘는 청량감과 낮은 도수로 누구나 부담 없이 즐길 수 있습니다.</p>
     <div class="taste-spec">
-      <span>당일도정 춘천쌀 100%</span><span>인공감미료·첨가물 0%</span><span>50일 저온 숙성</span><span>ALC. 7%</span><span>650ML</span>
+      <span data-i18n="taste.s1">당일도정 춘천쌀 100%</span><span data-i18n="taste.s2">인공감미료·첨가물 0%</span><span data-i18n="taste.s3">50일 저온 숙성</span><span data-i18n="taste.s4">잘 익은 참외</span><span data-i18n="taste.s5">생크림 질감</span>
     </div>
   </div>
 </section>
 
-<!-- ================= 현장 체험 ================= -->
-<section class="pad" style="background:var(--white);">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="eyebrow">On Site</span>
-      <h2 class="display kr-head">현장에서</h2>
-    </div>
-    <div class="exp-grid">
-      <div class="exp"><div class="n">01</div><h4>한정 에디션 막걸리</h4><p>학호도·서울야경 콜라보 라벨 한정판을 전시장에서 만나보세요.</p></div>
-      <div class="exp"><div class="n">02</div><h4>이름 초성 막걸리</h4><p>내 이름으로 만드는 초성 라벨 카드, 인스타에 공유.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= 이름 초성 생성기 ================= -->
+<!-- 이름 생성기 -->
 <section class="pad" id="name">
   <div class="wrap">
     <div class="gen">
       <span class="eyebrow">Korean Alphabet Name</span>
-      <h2 class="display kr-head">내 이름 초성 막걸리</h2>
-      <p class="lead">이름을 넣으면 한글 초성으로 바꿔 나만의 막걸리 카드를 만들어요.</p>
+      <h2 class="display kr-head" data-i18n="gen.h">내 이름, ㅈㄹ로 만들기</h2>
+      <p class="lead" data-i18n="gen.desc">이름을 입력하면 한글 초성으로 바꿔드려요. 한글·영문 OK!
+예) JANG WON YOUNG → ㅈ ㅇ ㅇ,
+JUNGKOOK → ㅈ ㄱ,
+Rihanna → ㄹ ㅎ ㄴ</p>
       <form class="gen-form" id="gen-form">
-        <input type="text" id="gen-input" placeholder="이름 입력 — 예: 김민지" autocomplete="off" />
-        <button type="submit" class="btn btn--violet">만들기</button>
+        <input type="text" id="gen-input" data-i18n-ph="gen.ph" placeholder="이름 입력 (예: 김민지)" autocomplete="off" />
+        <button type="submit" class="btn btn--violet" data-i18n="gen.btn">만들기</button>
       </form>
       <div class="gen-result" id="gen-result"></div>
-      <p class="note">결과는 익명 통계로만 집계돼요. 이름은 저장되지 않습니다.</p>
+      <p class="note" data-i18n="gen.track">입력한 이름은 통계 목적으로 수집될 수 있어요. 이름은 저장되지 않습니다.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= 방문 ================= -->
+<!-- 궁합 MATCH -->
+<section class="pad match" id="match">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Name Match · 이름 궁합</span>
+      <h2 class="display kr-head" data-i18n="match.h">우리 궁합, <span class="hl">ㅈㄹ</span>인가요? 🍶</h2>
+      <p class="lead" data-i18n="match.sub">두 사람 한글 이름을 넣으면 막걸리 궁합 점수가 촤르륵.</p>
+    </div>
+    <div class="match-panel">
+      <div class="match-row">
+        <div class="match-field">
+          <label data-i18n="match.n1L">내 이름 (한글)</label>
+          <input id="n1" type="text" maxlength="6" placeholder="예: 김민준" autocomplete="off" />
+        </div>
+        <button class="swap" id="swap" title="이름 순서 바꾸기" aria-label="이름 순서 바꾸기">⇄</button>
+        <div class="match-field">
+          <label data-i18n="match.n2L">상대 이름 (한글)</label>
+          <input id="n2" type="text" maxlength="6" placeholder="예: 박서연" autocomplete="off" />
+        </div>
+      </div>
+      <div class="match-actions">
+        <button class="btn btn--violet btn--sm" id="go" data-i18n="match.go">♥ 궁합 보기</button>
+        <button class="btn btn--ghost btn--sm" id="rand" data-i18n="match.rand">🔀 랜덤</button>
+      </div>
+      <p class="match-hint" data-i18n="match.hint">이름 순서를 바꾸면 각자 기준 점수가 달라질 수 있어요.</p>
+    </div>
+
+    <div id="match-result">
+      <div class="m-chips" id="m-chips"></div>
+      <div class="m-tags" id="m-tags"></div>
+      <div class="gauge-h"><span data-i18n="match.tension">궁합 텐션</span><span id="gnum">0 / 100</span></div>
+      <div class="gauge"><i id="gbar"></i></div>
+      <div class="score-wrap">
+        <div class="m-emoji" id="m-emoji">🍶</div>
+        <div class="score-lab" data-i18n="match.scoreLab">두 사람의 궁합 점수</div>
+        <div class="score"><span id="score">0</span><span data-i18n="match.pt">점</span></div>
+      </div>
+      <p class="verdict" id="verdict"></p>
+      <div class="who" id="who"></div>
+      <div class="dir" id="dir"></div>
+      <div class="m-res-actions">
+        <button class="btn btn--peri btn--sm" id="m-save" data-i18n="match.save">이미지 저장</button>
+        <button class="btn btn--ghost btn--sm" id="m-share" data-i18n="match.share">공유</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 방문 -->
 <section class="pad" id="visit">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Visit</span>
-      <h2 class="display kr-head">오시는 길</h2>
+      <h2 class="display kr-head" data-i18n="visit.h">오시는 길</h2>
     </div>
     <div class="visit-grid">
       <div class="visit-card">
-        <span class="eyebrow">Where</span>
-        <div class="big" id="visit-venue">플라츠2 (PLATZ 2)</div>
-        <p id="visit-address">서울시 성동구 뚝섬로17길 35</p>
-        <p style="margin-top:14px;"><a class="btn btn--peri" id="visit-map" href="#" target="_blank" rel="noopener">네이버 지도 →</a></p>
+        <span class="eyebrow" data-i18n="visit.whereL">Where</span>
+        <div class="big" data-i18n="loc.venue">플라츠2 (PLATZ 2)</div>
+        <p data-i18n="loc.addr">서울시 성동구 뚝섬로17길 35</p>
+        <p style="margin-top:14px;"><a class="btn btn--peri btn--sm" id="visit-map" href="#" target="_blank" rel="noopener" data-i18n="visit.map">네이버 지도 →</a></p>
       </div>
       <div class="visit-card">
-        <span class="eyebrow">When</span>
+        <span class="eyebrow" data-i18n="visit.whenL">When</span>
         <div class="big" id="visit-date">2026.06.20 – 06.28</div>
-        <p id="visit-hours">11:00 – 20:00 · 무료 입장</p>
+        <p><span data-i18n="loc.hours">11:00 – 20:00</span> · <span data-i18n="visit.free">무료 입장</span></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 푸터 ================= -->
+<!-- 푸터 -->
 <footer>
   <div class="wrap">
     <div class="flogo kr-head">ㅈㄹ막걸리 × POLYC</div>
     <p>DRINK HAPPY, NOT HEAVY</p>
-    <div class="fnext">
-      <a href="#" class="btn btn--peri" id="foot-next">다음 에디션 알림 신청 →</a>
-    </div>
+    <div class="fnext"><a href="#" class="btn btn--peri" id="foot-next" data-i18n="footer.next">다음 에디션 알림 신청 →</a></div>
     <p style="margin-top:18px;"><a class="fsns" id="foot-ig" href="#" target="_blank" rel="noopener">@zr.makgeolli</a></p>
   </div>
 </footer>
@@ -447,99 +481,326 @@
 
 <script src="/assets/chosung.js"></script>
 <script>
-  /* ---------- CONFIG → DOM 주입 ---------- */
-  (function fill(){
-    const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
-    set('hero-vol', EXHIBIT.vol + ' · POLYC × ZR MAKGEOLLI');
-    set('hero-title', EXHIBIT.title);
-    set('hero-hanja', EXHIBIT.titleHanja);
-    set('hero-en', EXHIBIT.titleEn.toUpperCase());
-    set('hero-meta', EXHIBIT.dateLabel + ' · ' + EXHIBIT.venue.replace(/\s*\(.*\)/,'') );
-    set('info-vol', EXHIBIT.vol);
-    set('info-title', EXHIBIT.title);
-    set('info-hanja', EXHIBIT.titleHanja);
-    set('info-artist', EXHIBIT.artist + ' 개인전 · ' + EXHIBIT.titleEn);
-    set('info-date', EXHIBIT.dateLabel);
-    set('info-venue', EXHIBIT.venue);
-    set('info-address', EXHIBIT.address);
-    set('info-hours', EXHIBIT.hours);
-    set('visit-venue', EXHIBIT.venue);
-    set('visit-address', EXHIBIT.address);
-    set('visit-date', EXHIBIT.dateLabel);
-    set('visit-hours', EXHIBIT.hours + ' · 무료 입장');
-    ['nav-ig','foot-ig'].forEach(id=>{ const a=document.getElementById(id); if(a) a.href=EXHIBIT.instaUrl; });
-    document.getElementById('visit-map').href = EXHIBIT.mapUrl;
-    document.getElementById('foot-next').href = EXHIBIT.instaUrl;
-  })();
+/* ================= I18N ================= */
+const I18N = {
+  ko:{
+    "meta.title":"비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC",
+    "meta.desc":"POLYC 개인전 《비단일 非單一 · Not Single》 × ㅈㄹ막걸리. 2026.06.20–06.28, 플라츠2(성수).",
+    "hero.sub":"POLYC 개인전과 함께 빚은<br>파스텔 보라 한정 에디션 막걸리.",
+    "hero.cta1":"오시는 길 →","hero.cta2":"에디션 보기",
+    "intro.body":"위트있게 만나는 MZ 막걸리. 무겁게 들이켜는 전통주가 아니라, 친구와 깔깔대며 가볍게 기울이는 한 잔. 한글 초성 'ㅈㄹ'을 큼직하게 박은 라벨처럼, 재밌지만 맛은 진지함으로 채웠습니다.",
+    "mean.h":"ㅈㄹ, 무슨 뜻일까요?",
+    "mean.note":"정답은 없어요. 보는 사람 마음대로 — 가볍게, 위트있게. Call it whatever you want.",
+    "ex.h":"이번 에디션","ex.artist":"POLYC 개인전 · Not Single",
+    "ex.dateL":"Date","ex.venueL":"Venue","ex.addrL":"Address","ex.hoursL":"Hours",
+    "loc.venue":"플라츠2 (PLATZ 2)","loc.addr":"서울시 성동구 뚝섬로17길 35","loc.hours":"11:00 – 20:00",
+    "ar.h":"POLYC — 글로벌 아티스트",
+    "ar.body1":"POLYC는 강렬한 색채와 한국 전통 도상을 현대적으로 재해석하는 글로벌 아티스트입니다. BTS를 비롯한 글로벌 아티스트, 타투이스트 권은비 등 다양한 분야와 작업을 이어왔습니다.",
+    "ar.body2":"개인전 《비단일 非單一 · Not Single》에서는 회화와 막걸리 라벨을 가로질러, 하나로 규정되지 않는 다층적인 세계를 ㅈㄹ막걸리와 함께 펼칩니다.",
+    "ar.t1":"BTS","ar.t2":"권은비","ar.t3":"타투이스트","ar.t4":"글로벌 아티스트 협업","ar.t5":"전통 재해석","ar.t6":"끊임없는 변화",
+    "ed.h":"두 개의 한정 에디션","ed.lead":"POLYC의 그림이 라벨이 된 ㅈㄹ막걸리 콜라보 에디션. 전시 기간 동안 플라츠2에서만 만날 수 있어요.",
+    "ed1.desc":"학(鶴)과 호랑이(虎)를 함께 담은 전통 민화를 POLYC의 큐비즘으로 재해석했습니다. 상서로운 학과 기개의 호랑이가 보랏빛 조각으로 어우러져요.",
+    "ed2.desc":"네온빛 다리와 타워, 한강의 밤 — 서울의 풍경을 조각조각 모은 에디션. 도시의 빛이 라벨 위에서 반짝이는, 가장 서울다운 한 병입니다.",
+    "ed.spec1":"춘천쌀 100%",
+    "taste.h":"어떤 맛이냐면",
+    "taste.body":"당일 도정한 춘천쌀 100%에 강원도 물과 누룩만으로 빚어 50일간 저온 숙성했습니다. 인공감미료·첨가물 0%. 잘 익은 참외와 멜론을 닮은 풍부한 단맛, 수작업 여과로 완성한 생크림처럼 부드러운 질감. 가볍게 톡 쏘는 청량감과 낮은 도수로 누구나 부담 없이 즐길 수 있습니다.",
+    "taste.s1":"당일도정 춘천쌀 100%","taste.s2":"인공감미료·첨가물 0%","taste.s3":"50일 저온 숙성","taste.s4":"잘 익은 참외","taste.s5":"생크림 질감",
+    "gen.h":"내 이름, ㅈㄹ로 만들기",
+    "gen.desc":"이름을 입력하면 한글 초성으로 바꿔드려요. 한글·영문 OK!\n예) JANG WON YOUNG → ㅈ ㅇ ㅇ,\nJUNGKOOK → ㅈ ㄱ,\nRihanna → ㄹ ㅎ ㄴ",
+    "gen.ph":"이름 입력 (예: 김민지)","gen.btn":"만들기","gen.save":"이미지 저장","gen.share":"공유",
+    "gen.track":"입력한 이름은 통계 목적으로 수집될 수 있어요. 이름은 저장되지 않습니다.",
+    "match.h":"우리 궁합, <span class=\"hl\">ㅈㄹ</span>인가요? 🍶","match.sub":"두 사람 한글 이름을 넣으면 막걸리 궁합 점수가 촤르륵.",
+    "match.n1L":"내 이름 (한글)","match.n2L":"상대 이름 (한글)","match.go":"♥ 궁합 보기","match.rand":"🔀 랜덤",
+    "match.hint":"이름 순서를 바꾸면 각자 기준 점수가 달라질 수 있어요.","match.tension":"궁합 텐션","match.scoreLab":"두 사람의 궁합 점수","match.pt":"점",
+    "match.save":"이미지 저장","match.share":"공유","match.alert":"두 사람의 이름을 한글로 입력해 주세요 🙏",
+    "visit.h":"오시는 길","visit.whereL":"Where","visit.whenL":"When","visit.map":"네이버 지도 →","visit.free":"무료 입장",
+    "footer.next":"다음 에디션 알림 신청 →"
+  },
+  en:{
+    "meta.title":"Not Single 非單一 — ZR Makgeolli × POLYC",
+    "meta.desc":"POLYC solo exhibition 'Not Single 非單一' × ZR Makgeolli. Jun 20–28, 2026, PLATZ 2 (Seongsu).",
+    "hero.sub":"A pastel-purple limited edition makgeolli,<br>brewed alongside POLYC's solo show.",
+    "hero.cta1":"Directions →","hero.cta2":"See Editions",
+    "intro.body":"A witty MZ-generation makgeolli. Not a heavy traditional liquor, but a light glass to share and laugh over with friends. Just like its label stamped with the bold Korean letters 'ㅈㄹ' — playful on the outside, dead serious about taste.",
+    "mean.h":"What does WTF mean?",
+    "mean.note":"There's no right answer. It's whatever you see — light and witty. Call it whatever you want.",
+    "ex.h":"This Edition","ex.artist":"POLYC Solo Exhibition · Not Single",
+    "ex.dateL":"Date","ex.venueL":"Venue","ex.addrL":"Address","ex.hoursL":"Hours",
+    "loc.venue":"PLATZ 2","loc.addr":"35 Ttukseom-ro 17-gil, Seongdong-gu, Seoul","loc.hours":"11:00 – 20:00",
+    "ar.h":"POLYC — Global Artist",
+    "ar.body1":"POLYC is a global artist who reinterprets bold color and traditional Korean iconography for today. POLYC has worked across many fields, including with BTS and other global artists, and tattooist Kwon Eun-bi.",
+    "ar.body2":"In the solo exhibition 'Not Single 非單一', POLYC moves across painting and makgeolli labels to unfold a layered world that refuses to be reduced to one thing — together with ZR Makgeolli.",
+    "ar.t1":"BTS","ar.t2":"Kwon Eun-bi","ar.t3":"Tattooist","ar.t4":"Global Collabs","ar.t5":"Tradition Reimagined","ar.t6":"Endless Change",
+    "ed.h":"Two Limited Editions","ed.lead":"ZR Makgeolli collab editions where POLYC's art becomes the label. Available only at PLATZ 2 during the show.",
+    "ed1.desc":"A traditional folk painting of crane (鶴) and tiger (虎), reimagined through POLYC's cubism. The auspicious crane and spirited tiger come together in shards of purple.",
+    "ed2.desc":"Neon bridges and towers, the night on the Han River — an edition that gathers Seoul's scenery piece by piece. The most Seoul-like bottle, with the city's lights glittering on the label.",
+    "ed.spec1":"100% Chuncheon Rice",
+    "taste.h":"How It Tastes",
+    "taste.body":"Brewed with 100% same-day milled Chuncheon rice, Gangwon water and nuruk, then cold-aged for 50 days. Zero artificial sweeteners or additives. A rich sweetness like ripe Korean melon, with a fresh-cream-smooth texture finished by hand filtering. A light sparkle and low ABV make it easy for anyone to enjoy.",
+    "taste.s1":"Same-day Milled Rice","taste.s2":"Zero Additives","taste.s3":"50-day Cold Aging","taste.s4":"Ripe Korean Melon","taste.s5":"Fresh-cream Texture",
+    "gen.h":"Make Your Name ㅈㄹ",
+    "gen.desc":"Type your name → Korean alphabet. Korean & English OK!\ne.g. JANG WON YOUNG → ㅈ ㅇ ㅇ,\nJUNGKOOK → ㅈ ㄱ,\nRihanna → ㄹ ㅎ ㄴ",
+    "gen.ph":"Enter your name (e.g. EMMA)","gen.btn":"Generate","gen.save":"Save image","gen.share":"Share",
+    "gen.track":"Entered names may be collected for statistics. Names are not stored.",
+    "match.h":"Are we a <span class=\"hl\">match</span>? 🍶","match.sub":"Enter two Korean names and watch the makgeolli compatibility score roll in.",
+    "match.n1L":"My name (Korean)","match.n2L":"Their name (Korean)","match.go":"♥ See Match","match.rand":"🔀 Random",
+    "match.hint":"Swapping the order can change each person's score.","match.tension":"Match Tension","match.scoreLab":"Compatibility score","match.pt":"pts",
+    "match.save":"Save image","match.share":"Share","match.alert":"Please enter both names in Korean 🙏",
+    "visit.h":"Visit","visit.whereL":"Where","visit.whenL":"When","visit.map":"Naver Map →","visit.free":"Free entry",
+    "footer.next":"Get next-edition alerts →"
+  },
+  ja:{
+    "meta.title":"非單一 Not Single — ㅈㄹマッコリ × POLYC",
+    "meta.desc":"POLYC個展『非單一・Not Single』× ㅈㄹマッコリ。2026.06.20–28、PLATZ 2（聖水）。",
+    "hero.sub":"POLYCの個展とともに仕込んだ<br>パステルパープルの限定エディション・マッコリ。",
+    "hero.cta1":"アクセス →","hero.cta2":"エディションを見る",
+    "intro.body":"ウィットに出会うMZ世代のマッコリ。重く飲み干す伝統酒ではなく、友達と笑いながら軽く傾ける一杯。ハングルの頭文字「ㅈㄹ」を大きく配したラベルのように、遊び心はたっぷり、でも味は真剣です。",
+    "mean.h":"WTFって、どんな意味？",
+    "mean.note":"正解はありません。見る人の自由に — 軽く、ウィットに。Call it whatever you want.",
+    "ex.h":"今回のエディション","ex.artist":"POLYC 個展 · Not Single",
+    "ex.dateL":"日程","ex.venueL":"会場","ex.addrL":"住所","ex.hoursL":"時間",
+    "loc.venue":"PLATZ 2（プラッツ2）","loc.addr":"ソウル特別市 城東区 トゥクソムロ17キル35","loc.hours":"11:00 – 20:00",
+    "ar.h":"POLYC — グローバルアーティスト",
+    "ar.body1":"POLYCは、鮮烈な色彩と韓国の伝統図像を現代的に再解釈するグローバルアーティストです。BTSをはじめとするグローバルアーティスト、タトゥイスト権ウンビなど、さまざまな分野と作業を重ねてきました。",
+    "ar.body2":"個展『非單一・Not Single』では、絵画とマッコリのラベルを横断し、ひとつに定義されない多層的な世界を ㅈㄹマッコリ とともに広げます。",
+    "ar.t1":"BTS","ar.t2":"権ウンビ","ar.t3":"タトゥイスト","ar.t4":"グローバル協業","ar.t5":"伝統の再解釈","ar.t6":"絶え間ない変化",
+    "ed.h":"2つの限定エディション","ed.lead":"POLYCの絵がラベルになった ㅈㄹマッコリ コラボエディション。会期中、PLATZ 2 だけで出会えます。",
+    "ed1.desc":"鶴（鶴）と虎（虎）を共に描いた伝統民画を、POLYCのキュビズムで再解釈。瑞祥の鶴と気概の虎が、紫の欠片となって溶け合います。",
+    "ed2.desc":"ネオンの橋とタワー、漢江の夜 — ソウルの風景を一片ずつ集めたエディション。都市の光がラベルの上で煌めく、最もソウルらしい一本。",
+    "ed.spec1":"春川産米100%",
+    "taste.h":"どんな味かというと",
+    "taste.body":"その日に精米した春川産米100%に江原道の水と麹だけで仕込み、50日間低温熟成。人工甘味料・添加物ゼロ。よく熟したマクワウリやメロンのような豊かな甘みと、手作業のろ過で仕上げた生クリームのようななめらかな口当たり。軽い微発泡と低アルコールで、誰でも気軽に楽しめます。",
+    "taste.s1":"当日精米 春川産米100%","taste.s2":"添加物ゼロ","taste.s3":"50日低温熟成","taste.s4":"よく熟したウリ","taste.s5":"生クリームの口当たり",
+    "gen.h":"あなたの名前を ㅈㄹ に",
+    "gen.desc":"名前をローマ字で入力するとハングルの頭文字に！\n例) JANG WON YOUNG → ㅈ ㅇ ㅇ,\nJUNGKOOK → ㅈ ㄱ,\nRihanna → ㄹ ㅎ ㄴ",
+    "gen.ph":"ローマ字で入力（例：HIMARI）","gen.btn":"作成","gen.save":"画像を保存","gen.share":"共有",
+    "gen.track":"入力された名前は統計目的で収集される場合があります。名前は保存されません。",
+    "match.h":"私たちの相性は<span class=\"hl\">ㅈㄹ</span>？ 🍶","match.sub":"二人の韓国語の名前を入れると、マッコリ相性スコアがカラカラ。",
+    "match.n1L":"私の名前（ハングル）","match.n2L":"相手の名前（ハングル）","match.go":"♥ 相性を見る","match.rand":"🔀 ランダム",
+    "match.hint":"順番を変えると、各自基準のスコアが変わることがあります。","match.tension":"相性テンション","match.scoreLab":"二人の相性スコア","match.pt":"点",
+    "match.save":"画像を保存","match.share":"共有","match.alert":"二人の名前をハングルで入力してください 🙏",
+    "visit.h":"アクセス","visit.whereL":"Where","visit.whenL":"When","visit.map":"NAVER地図 →","visit.free":"入場無料",
+    "footer.next":"次回エディションの通知を受け取る →"
+  },
+  zh:{
+    "meta.title":"非單一 Not Single — ㅈㄹ马格利酒 × POLYC",
+    "meta.desc":"POLYC个展《非單一·Not Single》× ㅈㄹ马格利酒。2026.06.20–28，PLATZ 2（圣水）。",
+    "hero.sub":"与POLYC个展一同酿造的<br>柔粉紫限定版马格利酒。",
+    "hero.cta1":"路线指引 →","hero.cta2":"查看版本",
+    "intro.body":"用俏皮相遇的MZ世代马格利酒。它不是要一饮而尽的厚重传统酒，而是和朋友谈笑间轻轻举起的一杯。就像瓶身上大大印着韩文首字母「ㅈㄹ」一样，玩心十足，但对味道很认真。",
+    "mean.h":"WTF 是什么意思？",
+    "mean.note":"没有标准答案。任凭你怎么看 — 轻松、有趣。Call it whatever you want.",
+    "ex.h":"本次版本","ex.artist":"POLYC 个展 · Not Single",
+    "ex.dateL":"日期","ex.venueL":"地点","ex.addrL":"地址","ex.hoursL":"时间",
+    "loc.venue":"PLATZ 2（普拉茨2）","loc.addr":"首尔市 城东区 纛岛路17街35","loc.hours":"11:00 – 20:00",
+    "ar.h":"POLYC — 全球艺术家",
+    "ar.body1":"POLYC是一位以鲜烈色彩与韩国传统图像进行当代再诠释的全球艺术家。曾与包括BTS在内的全球艺人、纹身师权恩妃等多个领域展开合作。",
+    "ar.body2":"在个展《非單一·Not Single》中，POLYC横跨绘画与马格利酒标，与ㅈㄹ马格利酒一同展开一个无法被单一定义的多层世界。",
+    "ar.t1":"BTS","ar.t2":"权恩妃","ar.t3":"纹身师","ar.t4":"全球合作","ar.t5":"传统再诠释","ar.t6":"不断变化",
+    "ed.h":"两款限定版本","ed.lead":"POLYC的画作化为酒标的 ㅈㄹ马格利酒联名版本。展期内仅在 PLATZ 2 发售。",
+    "ed1.desc":"将同绘鹤（鶴）与虎（虎）的传统民画，以POLYC的立体主义重新诠释。祥瑞之鹤与气概之虎化作紫色碎片彼此交融。",
+    "ed2.desc":"霓虹桥与塔、汉江之夜 — 一款将首尔风景一片片拼集的版本。城市之光在酒标上闪烁，最具首尔气息的一瓶。",
+    "ed.spec1":"100%春川大米",
+    "taste.h":"说到味道",
+    "taste.body":"采用当日碾磨的100%春川大米，仅以江原道水与曲酿造，并经50天低温熟成。零人工甜味剂与添加剂。如熟透甜瓜、蜜瓜般丰富的甜味，经手工过滤打造出鲜奶油般顺滑的口感。轻盈气泡感与较低酒精度，让每个人都能轻松享用。",
+    "taste.s1":"当日碾磨 100%春川大米","taste.s2":"零添加剂","taste.s3":"50天低温熟成","taste.s4":"熟透甜瓜","taste.s5":"鲜奶油口感",
+    "gen.h":"把你的名字变成 ㅈㄹ",
+    "gen.desc":"用拼音或英文输入即可变韩文首字母！\n例) JANG WON YOUNG → ㅈ ㅇ ㅇ,\nJUNGKOOK → ㅈ ㄱ,\nRihanna → ㄹ ㅎ ㄴ",
+    "gen.ph":"用拼音或英文输入（例：XINYI）","gen.btn":"生成","gen.save":"保存图片","gen.share":"分享",
+    "gen.track":"输入的名字可能用于统计收集。名字不会被保存。",
+    "match.h":"我们合得来吗？<span class=\"hl\">ㅈㄹ</span> 🍶","match.sub":"输入两人韩文姓名，马格利缘分分数哗啦啦。",
+    "match.n1L":"我的名字（韩文）","match.n2L":"对方名字（韩文）","match.go":"♥ 看缘分","match.rand":"🔀 随机",
+    "match.hint":"调换顺序，各自基准的分数可能不同。","match.tension":"缘分张力","match.scoreLab":"两人的缘分分数","match.pt":"分",
+    "match.save":"保存图片","match.share":"分享","match.alert":"请用韩文输入两人的名字 🙏",
+    "visit.h":"到场指南","visit.whereL":"Where","visit.whenL":"When","visit.map":"NAVER地图 →","visit.free":"免费入场",
+    "footer.next":"订阅下一版本提醒 →"
+  }
+};
 
-  /* ---------- 이름 초성 생성기 ---------- */
-  const form = document.getElementById('gen-form');
-  const input = document.getElementById('gen-input');
-  const result = document.getElementById('gen-result');
-  let lastCho = '', lastName = '';
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const name = input.value.trim();
-    if (!name){ input.focus(); return; }
-    const cho = (window.toChosung ? window.toChosung(name, /[가-힣]/.test(name) ? 'ko' : 'en') : 'ㅈㄹ');
-    lastCho = cho; lastName = name;
-    result.innerHTML =
-      '<div class="cho-name">'+ name.toUpperCase() +'</div>' +
-      '<div class="cho">'+ cho +'</div>' +
-      '<div class="gen-actions">' +
-        '<button class="btn btn--peri" id="save-card">이미지 저장</button>' +
-        '<button class="btn btn--ghost" id="share-card">공유</button>' +
-      '</div>';
-    result.classList.remove('show'); void result.offsetWidth; result.classList.add('show');
-    document.getElementById('save-card').onclick = ()=>downloadCard();
-    document.getElementById('share-card').onclick = ()=>shareCard();
-    if (window.va) window.va('event', { name:'name_generate', page:'polyc' });
+/* 키네틱 워드 */
+const KIN = {
+  ko:{ big:'ㅈㄹ', words:['재력','자랑','진리','잘래?','재롱','주류','정력','조롱','지랄','졸라'] },
+  en:{ big:'WTF', words:['Way Too Fine','Wonderfully Tasty Fizz','Worth The Fun','Wild · Tipsy · Free','Wanna Taste, Friend','What The Flavor','Welcome To Fun','Wow, So Fine'] },
+  ja:{ big:'WTF', words:['Way Too Fine','Wonderfully Tasty Fizz','Worth The Fun','Wild · Tipsy · Free','Wanna Taste, Friend','What The Flavor','Welcome To Fun','Wow, So Fine'] },
+  zh:{ big:'WTF', words:['Way Too Fine','Wonderfully Tasty Fizz','Worth The Fun','Wild · Tipsy · Free','Wanna Taste, Friend','What The Flavor','Welcome To Fun','Wow, So Fine'] }
+};
+const KIN_SLOTS = [[10,10],[14,68],[30,40],[64,8],[72,72],[84,34],[44,82],[50,3],[26,52],[78,18]];
+function renderKinetic(lang){
+  const data = KIN[lang] || KIN.ko;
+  const box = document.getElementById('kinetic-stage');
+  if(!box) return; box.innerHTML='';
+  data.words.forEach((w,i)=>{
+    const s = KIN_SLOTS[i % KIN_SLOTS.length];
+    const el = document.createElement('span');
+    el.className='kw'; el.textContent=w;
+    el.style.top=s[0]+'%'; el.style.left=s[1]+'%';
+    el.style.animationDuration=(9+(i%5)*1.7)+'s';
+    el.style.animationDelay=(-i*0.8)+'s';
+    if(i%2) el.style.animationDirection='reverse';
+    box.appendChild(el);
   });
+  const big=document.createElement('span'); big.className='kw-big'; big.textContent=data.big; box.appendChild(big);
+}
 
-  /* ---------- 스토리 카드(1080×1920) 렌더 ---------- */
-  function drawCard(cb){
-    const c = document.getElementById('card-canvas'); const x = c.getContext('2d');
-    const W=1080, H=1920;
-    const g = x.createLinearGradient(0,0,0,H);
-    g.addColorStop(0,'#B9A7E6'); g.addColorStop(.55,'#E4DAF6'); g.addColorStop(1,'#F3EEFB');
-    x.fillStyle=g; x.fillRect(0,0,W,H);
-    x.textAlign='center';
-    x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace';
-    x.fillText('ZR MAKGEOLLI × POLYC', W/2, 170);
-    x.fillStyle='#7A5CD0'; x.font='700 26px "Space Mono",monospace';
-    x.fillText('비단일 · NOT SINGLE', W/2, 218);
-    x.fillStyle='#7A5CD0'; x.font='700 40px "Space Mono",monospace';
-    x.fillText(lastName.toUpperCase(), W/2, 700);
-    x.fillStyle='#2E3192'; x.font='900 220px "Paperlogy","Archivo",sans-serif';
-    x.fillText(lastCho, W/2, 960);
-    x.fillStyle='#2A2350'; x.font='700 40px "Paperlogy",sans-serif';
-    x.fillText('내 이름 초성 막걸리', W/2, 1150);
-    x.fillStyle='#5a527e'; x.font='400 30px "Inter",sans-serif';
-    x.fillText('DRINK HAPPY, NOT HEAVY', W/2, 1210);
-    const img = new Image();
-    img.onload = ()=>{ const iw=560, ih=img.height*(iw/img.width); x.drawImage(img,(W-iw)/2,1300,iw,ih); finish(); };
-    img.onerror = finish;
-    img.src = '/assets/tiger.png';
-    function finish(){
-      x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace';
-      x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel, W/2, H-90);
-      cb(c);
-    }
+/* 언어 전환 */
+function detectLang(){
+  const SUP=['ko','en','ja','zh'];
+  const q=new URLSearchParams(location.search).get('lang');
+  if(SUP.includes(q)) return q;
+  return localStorage.getItem('zr_lang') || 'ko';
+}
+let LANG = detectLang();
+function applyLang(lang){
+  LANG=lang; localStorage.setItem('zr_lang',lang);
+  const dict=I18N[lang]; document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n'); if(dict[k]==null) return;
+    if(/<span|<br/.test(dict[k])) el.innerHTML=dict[k]; else el.textContent=dict[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-ph'); if(dict[k]!=null) el.setAttribute('placeholder',dict[k]);
+  });
+  document.title=dict['meta.title'];
+  document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+  renderKinetic(lang);
+}
+document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
+
+/* CONFIG 주입 */
+(function fill(){
+  document.getElementById('hero-meta').textContent = EXHIBIT.dateLabel + ' · PLATZ 2';
+  document.getElementById('ex-date').textContent = EXHIBIT.dateLabel;
+  document.getElementById('visit-date').textContent = EXHIBIT.dateLabel;
+  document.getElementById('visit-map').href = EXHIBIT.mapUrl;
+  document.getElementById('foot-ig').href = EXHIBIT.instaUrl;
+  document.getElementById('foot-next').href = EXHIBIT.instaUrl;
+})();
+applyLang(LANG);
+
+/* ================= 이름 초성 생성기 ================= */
+const gform=document.getElementById('gen-form'), ginput=document.getElementById('gen-input'), gresult=document.getElementById('gen-result');
+let lastCho='', lastName='';
+gform.addEventListener('submit',function(e){
+  e.preventDefault();
+  const name=ginput.value.trim(); if(!name){ ginput.focus(); return; }
+  const cho=(window.toChosung?window.toChosung(name,/[가-힣]/.test(name)?'ko':'en'):'ㅈㄹ');
+  lastCho=cho; lastName=name;
+  const d=I18N[LANG];
+  gresult.innerHTML='<div class="cho-name">'+name.toUpperCase()+'</div><div class="cho">'+cho+'</div>'+
+    '<div class="gen-actions"><button class="btn btn--peri" id="save-card">'+d['gen.save']+'</button><button class="btn btn--ghost" id="share-card">'+d['gen.share']+'</button></div>';
+  gresult.classList.remove('show'); void gresult.offsetWidth; gresult.classList.add('show');
+  document.getElementById('save-card').onclick=()=>downloadName();
+  document.getElementById('share-card').onclick=()=>shareName();
+  if(window.va) window.va('event',{name:'name_generate',page:'polyc'});
+});
+async function drawNameCard(cb){
+  const c=document.getElementById('card-canvas'), x=c.getContext('2d'), W=1080,H=1920;
+  try{ await Promise.all([document.fonts.load('900 220px Paperlogy'),document.fonts.load('700 60px Paperlogy')]); await document.fonts.ready; }catch(e){}
+  const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,'#B9A7E6'); g.addColorStop(.55,'#E4DAF6'); g.addColorStop(1,'#F3EEFB');
+  x.fillStyle=g; x.fillRect(0,0,W,H); x.textAlign='center';
+  x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace'; x.fillText('ZR MAKGEOLLI × POLYC',W/2,170);
+  x.fillStyle='#7A5CD0'; x.font='700 26px "Space Mono",monospace'; x.fillText('비단일 · NOT SINGLE',W/2,218);
+  x.fillStyle='#7A5CD0'; x.font='700 44px Paperlogy'; x.fillText(lastName.toUpperCase(),W/2,700);
+  x.fillStyle='#2E3192'; x.font='900 230px Paperlogy'; x.fillText(lastCho,W/2,970);
+  x.fillStyle='#2A2350'; x.font='900 46px Paperlogy'; x.fillText('내 이름 초성 막걸리',W/2,1180);
+  const img=new Image();
+  img.onload=()=>{ const iw=300, ih=img.height*(iw/img.width); x.drawImage(img,(W-iw)/2,1280,iw,ih); finish(); };
+  img.onerror=finish; img.src='/assets/tiger.png';
+  function finish(){
+    x.fillStyle='#2E3192'; x.font='700 38px Paperlogy'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1740);
+    x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1800);
+    cb(c);
   }
-  function downloadCard(){
-    drawCard(c=>{ const a=document.createElement('a'); a.download='zr-polyc-'+(lastName||'name')+'.png'; a.href=c.toDataURL('image/png'); a.click();
-      if (window.va) window.va('event',{ name:'name_save', page:'polyc' }); });
-  }
-  function shareCard(){
-    drawCard(c=>{ c.toBlob(async b=>{
-      const file = new File([b],'zr-polyc.png',{type:'image/png'});
-      if (navigator.canShare && navigator.canShare({files:[file]})){
-        try{ await navigator.share({files:[file], title:'ㅈㄹ막걸리 × POLYC'}); }catch(e){}
-      } else { downloadCard(); }
-      if (window.va) window.va('event',{ name:'name_share', page:'polyc' });
-    },'image/png'); });
-  }
+}
+function downloadName(){ drawNameCard(c=>{ const a=document.createElement('a'); a.download='zr-polyc-'+(lastName||'name')+'.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'name_save',page:'polyc'}); }); }
+function shareName(){ drawNameCard(c=>{ c.toBlob(async b=>{ const f=new File([b],'zr-polyc.png',{type:'image/png'}); if(navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],title:'ㅈㄹ막걸리 × POLYC'});}catch(e){} } else downloadName(); if(window.va) window.va('event',{name:'name_share',page:'polyc'}); },'image/png'); }); }
+
+/* ================= 이름 궁합 (한글 획수) ================= */
+const BASE='가'.charCodeAt(0);
+const INITIALS=['ㄱ','ㄲ','ㄴ','ㄷ','ㄸ','ㄹ','ㅁ','ㅂ','ㅃ','ㅅ','ㅆ','ㅇ','ㅈ','ㅉ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const MEDIALS=['ㅏ','ㅐ','ㅑ','ㅒ','ㅓ','ㅔ','ㅕ','ㅖ','ㅗ','ㅘ','ㅙ','ㅚ','ㅛ','ㅜ','ㅝ','ㅞ','ㅟ','ㅠ','ㅡ','ㅢ','ㅣ'];
+const FINALES=['','ㄱ','ㄲ','ㄳ','ㄴ','ㄵ','ㄶ','ㄷ','ㄹ','ㄺ','ㄻ','ㄼ','ㄽ','ㄾ','ㄿ','ㅀ','ㅁ','ㅂ','ㅄ','ㅅ','ㅆ','ㅇ','ㅈ','ㅊ','ㅋ','ㅌ','ㅍ','ㅎ'];
+const STROKES={'':0,'ㄱ':2,'ㄲ':4,'ㄴ':2,'ㄷ':3,'ㄸ':6,'ㄹ':5,'ㅁ':4,'ㅂ':4,'ㅃ':8,'ㅅ':2,'ㅆ':4,'ㅇ':1,'ㅈ':3,'ㅉ':6,'ㅊ':4,'ㅋ':3,'ㅌ':4,'ㅍ':4,'ㅎ':3,'ㄳ':4,'ㄵ':5,'ㄶ':5,'ㄺ':7,'ㄻ':9,'ㄼ':9,'ㄽ':7,'ㄾ':9,'ㄿ':9,'ㅀ':8,'ㅄ':6,'ㅏ':2,'ㅐ':3,'ㅑ':3,'ㅒ':4,'ㅓ':2,'ㅔ':3,'ㅕ':3,'ㅖ':4,'ㅗ':2,'ㅘ':4,'ㅙ':5,'ㅚ':3,'ㅛ':3,'ㅜ':2,'ㅝ':4,'ㅞ':5,'ㅟ':3,'ㅠ':3,'ㅡ':1,'ㅢ':2,'ㅣ':1};
+function getSymbol(ch){
+  if(!/[ㄱ-ㅎ가-힣]/.test(ch)) return null;
+  let initial='',medial='',finale='';
+  if(/[ㄱ-ㅎ]/.test(ch)){ initial=ch; }
+  else{ const t=ch.charCodeAt(0)-BASE; const fo=t%FINALES.length; const mo=((t-fo)/FINALES.length)%MEDIALS.length; const io=((t-fo)/FINALES.length-mo)/MEDIALS.length; initial=INITIALS[io]; medial=MEDIALS[mo]; finale=FINALES[fo]; }
+  return (STROKES[initial]||0)+(STROKES[medial]||0)+(STROKES[finale]||0);
+}
+function strokesOf(name){ return [...name].filter(c=>/[가-힣ㄱ-ㅎ]/.test(c)).map(c=>[c,getSymbol(c)]); }
+function getScore(a,b){
+  const s1=strokesOf(a), s2=strokesOf(b), maxLen=Math.max(s1.length,s2.length); let nums=[];
+  for(let i=0;i<maxLen;i++){ nums.push((s1[i]||['',0])[1],(s2[i]||['',0])[1]); }
+  while(nums.length>2 && nums.join('')!=='100'){ nums=nums.reduce((acc,e,i,arr)=> i<arr.length-1 ? [...acc,(e+arr[i+1])%10] : acc, []); }
+  return ~~nums.join('');
+}
+function band(s){
+  if(s>=90) return {emoji:'💞',tag:'천생연분',msg:'천생연분! 오늘 막걸리로 축배를 들어야 할 운명 🍶'};
+  if(s>=75) return {emoji:'😍',tag:'꽤 잘 맞음',msg:'꽤 잘 맞아요! 막걸리 한 잔이면 더 가까워질 사이'};
+  if(s>=60) return {emoji:'🥰',tag:'순항 중',msg:'좋은 흐름! 막걸리 기울이며 천천히 알아가 봐요'};
+  if(s>=40) return {emoji:'🤔',tag:'노력형',msg:'노력하면 충분! 막걸리 한 사발에 마음이 녹아요'};
+  if(s>=20) return {emoji:'😅',tag:'밀당 중',msg:'아직은 밀당 중? 막걸리로 분위기부터 풀어봐요'};
+  return {emoji:'🌶️',tag:'상극의 짜릿함',msg:'상극의 짜릿함! 막걸리 한 잔으로 중화가 필요해요'};
+}
+const $=id=>document.getElementById(id);
+const n1=$('n1'), n2=$('n2'), mResult=$('match-result');
+const SAMPLE=['김민준','이서연','박도윤','최지우','정하준','강서윤','조시우','윤지아','임수아','한지호','오예린','권채원','신건우','황주원','문가온'];
+let lastM=null; const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+$('rand').addEventListener('click',()=>{ const a=Math.floor(Math.random()*SAMPLE.length); let b; do{ b=Math.floor(Math.random()*SAMPLE.length);}while(b===a); n1.value=SAMPLE[a]; n2.value=SAMPLE[b]; });
+$('swap').addEventListener('click',()=>{ const t=n1.value; n1.value=n2.value; n2.value=t; });
+$('go').addEventListener('click',runMatch);
+[n1,n2].forEach(el=>el.addEventListener('keydown',e=>{ if(e.key==='Enter') runMatch(); }));
+function validK(s){ return /[가-힣]/.test(s); }
+async function runMatch(){
+  const a=n1.value.trim(), b=n2.value.trim();
+  if(!validK(a)||!validK(b)){ alert(I18N[LANG]['match.alert']); return; }
+  const sMe=getScore(a,b), sYou=getScore(b,a); const score=Math.round((sMe+sYou)/2); const bd=band(score);
+  lastM={a,b,score,sMe,sYou,bd};
+  mResult.classList.add('show'); mResult.scrollIntoView({behavior:'smooth',block:'nearest'});
+  $('gbar').style.width='0'; $('gnum').textContent='0 / 100'; $('score').textContent='0';
+  ['m-tags','who','dir','verdict'].forEach(id=>$(id).innerHTML=''); $('m-emoji').textContent='🍶';
+  const chips=$('m-chips'); chips.innerHTML='';
+  const g1=strokesOf(a), g2=strokesOf(b), all=[...g1,...g2];
+  function row(arr){ const r=document.createElement('div'); r.className='m-chip-row'; arr.forEach(([c])=>{ const d=document.createElement('div'); d.className='m-chip'; d.innerHTML='<b>'+c+'</b><span>획수 <span class="num">0</span></span>'; r.appendChild(d); }); chips.appendChild(r); }
+  row(g1); row(g2);
+  const els=[...chips.querySelectorAll('.m-chip')];
+  for(let i=0;i<els.length;i++){ els[i].classList.add('in'); await sleep(150); const t=all[i][1], ne=els[i].querySelector('.num'); for(let v=1;v<=t;v++){ ne.textContent=v; await sleep(26); } }
+  await sleep(160);
+  $('gbar').style.width=score+'%'; $('gnum').textContent=score+' / 100'; $('m-emoji').textContent=bd.emoji;
+  (function(){ const steps=22; let i=0; const id=setInterval(()=>{ i++; $('score').textContent = i>=steps?score:Math.round(score*(1-Math.pow(1-i/steps,3))); if(i>=steps) clearInterval(id); },34); })();
+  const gap=Math.abs(sMe-sYou);
+  $('m-tags').innerHTML=[bd.tag, gap>=20?'감정 편차형':'밸런스형'].map(t=>'<span class="m-pill">'+t+'</span>').join('');
+  $('verdict').textContent=bd.msg;
+  const moreA=sMe>=sYou;
+  $('who').innerHTML = sMe===sYou ? '두 사람 마음이 딱 같아요! 💕' :
+    '<b class="'+(moreA?'a':'b')+'">'+(moreA?a:b)+'</b>님이 <b class="'+(moreA?'b':'a')+'">'+(moreA?b:a)+'</b>님을 더 많이 좋아하고 있어요! 💕';
+  $('dir').innerHTML='<span>'+a+' 기준 <b>'+sMe+'</b></span><span>'+b+' 기준 <b>'+sYou+'</b></span>';
+  if(window.va) window.va('event',{name:'match_generate',page:'polyc',band:bd.tag});
+}
+async function drawMatchCard(cb){
+  const c=document.getElementById('card-canvas'), x=c.getContext('2d'), W=1080,H=1920, d=lastM;
+  try{ await Promise.all([document.fonts.load('900 200px Paperlogy'),document.fonts.load('700 40px Paperlogy')]); await document.fonts.ready; }catch(e){}
+  const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,'#B9A7E6'); g.addColorStop(.55,'#E4DAF6'); g.addColorStop(1,'#F3EEFB');
+  x.fillStyle=g; x.fillRect(0,0,W,H); x.textAlign='center';
+  x.fillStyle='#2E3192'; x.font='700 36px Paperlogy'; x.fillText('ㅈㄹ막걸리 · 이름 궁합',W/2,150);
+  x.fillStyle='#7A5CD0'; x.font='700 24px "Space Mono",monospace'; x.fillText('× POLYC · 비단일',W/2,196);
+  x.fillStyle='#2E3192'; x.font='900 64px Paperlogy'; x.fillText(d.a+' ♥ '+d.b,W/2,360);
+  x.font='110px serif'; x.fillText(d.bd.emoji,W/2,520);
+  x.fillStyle='#2A2350'; x.font='900 46px Paperlogy'; x.fillText('두 사람의 궁합 점수',W/2,640);
+  x.fillStyle='#D46AAE'; x.font='900 240px Paperlogy'; x.fillText(d.score+'%',W/2,900);
+  x.fillStyle='#2A2350'; x.font='700 40px Paperlogy';
+  (function(){ const words=d.bd.msg.split(' '); let line='',y=1020; for(const w of words){ const t=line?line+' '+w:w; if(x.measureText(t).width>W-180&&line){ x.fillText(line,W/2,y); line=w; y+=56; } else line=t; } if(line) x.fillText(line,W/2,y); })();
+  x.strokeStyle='#7A5CD0'; x.lineWidth=5; x.strokeRect(160,1180,W-320,46); x.fillStyle='#D46AAE'; x.fillRect(163,1183,(W-326)*d.score/100,40);
+  x.fillStyle='#2A2350'; x.font='700 34px Paperlogy'; x.fillText(d.a+' 기준 '+d.sMe+'     '+d.b+' 기준 '+d.sYou,W/2,1320);
+  x.fillStyle='#2E3192'; x.font='700 38px Paperlogy'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1700);
+  x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1760);
+  cb(c);
+}
+function downloadMatch(){ drawMatchCard(c=>{ const a=document.createElement('a'); a.download='zr-match.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'match_save',page:'polyc'}); }); }
+function shareMatch(){ drawMatchCard(c=>{ c.toBlob(async b=>{ const f=new File([b],'zr-match.png',{type:'image/png'}); if(navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],text:lastM.a+' ♥ '+lastM.b+' '+lastM.score+'점 🍶 @zr.makgeolli'});}catch(e){} } else downloadMatch(); if(window.va) window.va('event',{name:'match_share',page:'polyc'}); },'image/png'); }); }
+$('m-save').addEventListener('click',downloadMatch);
+$('m-share').addEventListener('click',shareMatch);
 </script>
 </body>
 </html>
