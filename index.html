@@ -27,7 +27,8 @@
     dateLabel: "2026.06.20 – 06.28",
     mapUrl:    "https://map.naver.com/p/search/서울특별시 성동구 뚝섬로17길 35",
     instaUrl:  "https://www.instagram.com/zr.makgeolli/",
-    kakaoUrl:  "https://pf.kakao.com/_sxnQXX"
+    kakaoUrl:  "https://pf.kakao.com/_sxnQXX",
+    webappUrl: "https://script.google.com/macros/s/AKfycbzXBYwep0qWg8yW7bitqW-Jms4v2_-KR-EDiyHy-NGJzP_XOy408xEVZ2JKOkJWWhQi/exec"
   };
 </script>
 
@@ -425,7 +426,6 @@ Rihanna → ㄹ ㅎ ㄴ</p>
       </div>
       <div class="match-actions">
         <button class="btn btn--violet btn--sm" id="go" data-i18n="match.go">♥ 궁합 보기</button>
-        <button class="btn btn--ghost btn--sm" id="rand" data-i18n="match.rand">🔀 랜덤</button>
       </div>
       <p class="match-hint" data-i18n="match.hint">이름 순서를 바꾸면 각자 기준 점수가 달라질 수 있어요.</p>
     </div>
@@ -712,9 +712,12 @@ document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',
 })();
 applyLang(LANG);
 
+/* 구글시트 로깅 (원본과 동일 namegen 시트) — fire&forget */
+function logSheet(payload){ try{ fetch(EXHIBIT.webappUrl,{method:'POST',body:JSON.stringify(payload)}); }catch(e){} }
+
 /* ================= 이름 초성 생성기 ================= */
 const gform=document.getElementById('gen-form'), ginput=document.getElementById('gen-input'), gresult=document.getElementById('gen-result');
-let lastCho='', lastName='';
+let lastCho='', lastName='', nameFile=null;
 gform.addEventListener('submit',function(e){
   e.preventDefault();
   const name=ginput.value.trim(); if(!name){ ginput.focus(); return; }
@@ -727,6 +730,10 @@ gform.addEventListener('submit',function(e){
   document.getElementById('save-card').onclick=()=>downloadName();
   document.getElementById('share-card').onclick=()=>shareName();
   if(window.va) window.va('event',{name:'name_generate',page:'polyc'});
+  logSheet({type:'namegen',event:'generate',name:name,chosung:cho,language:LANG,page:'polyc'});
+  // 공유용 파일 미리 굽기 (클릭 제스처 유지 → navigator.share 가능)
+  nameFile=null;
+  drawNameCard(c=>{ c.toBlob(b=>{ if(b) nameFile=new File([b],'zr-polyc-'+(lastName||'name')+'.png',{type:'image/png'}); },'image/png'); });
 });
 /* 이름/이름쌍에 따라 호랑이 또는 학 (deterministic) */
 function pickAnimal(seed){ let s=0; for(const ch of String(seed)) s+=ch.charCodeAt(0); return (s%2===0) ? '/assets/tiger.png' : '/assets/crane.png'; }
@@ -735,19 +742,27 @@ async function drawNameCard(cb){
   try{ await Promise.all([document.fonts.load('900 230px Paperlogy'),document.fonts.load('700 44px Paperlogy')]); await document.fonts.ready; }catch(e){}
   const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,'#B9A7E6'); g.addColorStop(.55,'#E4DAF6'); g.addColorStop(1,'#F3EEFB');
   x.fillStyle=g; x.fillRect(0,0,W,H); x.textAlign='center';
-  x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace'; x.fillText('ZR MAKGEOLLI × POLYC',W/2,160);
-  x.fillStyle='#7A5CD0'; x.font='700 30px Paperlogy'; x.fillText('비단일 · NOT SINGLE',W/2,212);
-  x.fillStyle='#7A5CD0'; x.font='700 44px Paperlogy'; x.fillText(lastName.toUpperCase(),W/2,640);
-  x.fillStyle='#2E3192'; x.font='900 230px Paperlogy'; x.fillText(lastCho,W/2,910);
-  x.fillStyle='#2A2350'; x.font='900 46px Paperlogy'; x.fillText('내 이름 초성 막걸리',W/2,1120);
-  x.fillStyle='#5a527e'; x.font='400 30px "Space Mono",monospace'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1180);
-  x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1270);
+  // 상단: 브랜드 + 핸들/날짜 (비단일 밑)
+  x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace'; x.fillText('ZR MAKGEOLLI × POLYC',W/2,150);
+  x.fillStyle='#7A5CD0'; x.font='700 30px Paperlogy'; x.fillText('비단일 · NOT SINGLE',W/2,202);
+  x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,272);
+  // 가운데 그룹: 이름 → 초성 → 슬로건 → 일러스트
+  x.fillStyle='#7A5CD0'; x.font='700 44px Paperlogy'; x.fillText(lastName.toUpperCase(),W/2,520);
+  x.fillStyle='#2E3192'; x.font='900 230px Paperlogy'; x.fillText(lastCho,W/2,760);
+  x.fillStyle='#2A2350'; x.font='900 46px Paperlogy'; x.fillText('내 이름 초성 막걸리',W/2,970);
+  x.fillStyle='#5a527e'; x.font='400 30px "Space Mono",monospace'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1025);
   const img=new Image();
-  img.onload=()=>{ const maxW=660,maxH=580, sc=Math.min(maxW/img.width,maxH/img.height), dw=img.width*sc, dh=img.height*sc; x.drawImage(img,(W-dw)/2,1880-dh,dw,dh); cb(c); };
+  img.onload=()=>{ const maxW=620,maxH=540, sc=Math.min(maxW/img.width,maxH/img.height), dw=img.width*sc, dh=img.height*sc; x.drawImage(img,(W-dw)/2,1640-dh,dw,dh); cb(c); };
   img.onerror=()=>cb(c); img.src=pickAnimal(lastName);
 }
-function downloadName(){ drawNameCard(c=>{ const a=document.createElement('a'); a.download='zr-polyc-'+(lastName||'name')+'.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'name_save',page:'polyc'}); }); }
-function shareName(){ drawNameCard(c=>{ c.toBlob(async b=>{ const f=new File([b],'zr-polyc.png',{type:'image/png'}); if(navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],title:'ㅈㄹ막걸리 × POLYC'});}catch(e){} } else downloadName(); if(window.va) window.va('event',{name:'name_share',page:'polyc'}); },'image/png'); }); }
+function downloadName(){ drawNameCard(c=>{ const a=document.createElement('a'); a.download='zr-polyc-'+(lastName||'name')+'.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'name_save',page:'polyc'}); logSheet({type:'namegen',event:'save',name:lastName,chosung:lastCho,language:LANG,page:'polyc'}); }); }
+function shareName(){
+  if(window.va) window.va('event',{name:'name_share',page:'polyc'});
+  logSheet({type:'namegen',event:'share',name:lastName,chosung:lastCho,language:LANG,page:'polyc'});
+  if(nameFile && navigator.canShare && navigator.canShare({files:[nameFile]})){
+    navigator.share({files:[nameFile], title:'ㅈㄹ막걸리 × POLYC', text:'내 이름 초성 막걸리 🍶 @zr.makgeolli'}).catch(()=>{});
+  } else { downloadName(); }
+}
 
 /* ================= 이름 궁합 (한글 획수) ================= */
 const BASE='가'.charCodeAt(0);
@@ -780,8 +795,7 @@ function band(s){
 const $=id=>document.getElementById(id);
 const n1=$('n1'), n2=$('n2'), mResult=$('match-result');
 const SAMPLE=['김민준','이서연','박도윤','최지우','정하준','강서윤','조시우','윤지아','임수아','한지호','오예린','권채원','신건우','황주원','문가온'];
-let lastM=null; const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-$('rand').addEventListener('click',()=>{ const a=Math.floor(Math.random()*SAMPLE.length); let b; do{ b=Math.floor(Math.random()*SAMPLE.length);}while(b===a); n1.value=SAMPLE[a]; n2.value=SAMPLE[b]; });
+let lastM=null, matchFile=null; const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 $('swap').addEventListener('click',()=>{ const t=n1.value; n1.value=n2.value; n2.value=t; });
 $('go').addEventListener('click',runMatch);
 [n1,n2].forEach(el=>el.addEventListener('keydown',e=>{ if(e.key==='Enter') runMatch(); }));
@@ -791,6 +805,9 @@ async function runMatch(){
   if(!validK(a)||!validK(b)){ alert(I18N[LANG]['match.alert']); return; }
   const sMe=getScore(a,b), sYou=getScore(b,a); const score=Math.round((sMe+sYou)/2); const bd=band(score);
   lastM={a,b,score,sMe,sYou,bd};
+  logSheet({type:'namegen',event:'match_generate',name:a+' × '+b,chosung:String(score),language:'ko',page:'match'});
+  matchFile=null;
+  drawMatchCard(c=>{ c.toBlob(b=>{ if(b) matchFile=new File([b],'zr-match.png',{type:'image/png'}); },'image/png'); });
   mResult.classList.add('show'); mResult.scrollIntoView({behavior:'smooth',block:'nearest'});
   $('gbar').style.width='0'; $('gnum').textContent='0 / 100'; $('score').textContent='0';
   ['m-tags','who','dir','verdict'].forEach(id=>$(id).innerHTML=''); $('m-emoji').textContent='🍶';
@@ -837,8 +854,14 @@ async function drawMatchCard(cb){
     cb(c);
   }
 }
-function downloadMatch(){ drawMatchCard(c=>{ const a=document.createElement('a'); a.download='zr-match.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'match_save',page:'polyc'}); }); }
-function shareMatch(){ drawMatchCard(c=>{ c.toBlob(async b=>{ const f=new File([b],'zr-match.png',{type:'image/png'}); if(navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],text:lastM.a+' ♥ '+lastM.b+' '+lastM.score+'점 🍶 @zr.makgeolli'});}catch(e){} } else downloadMatch(); if(window.va) window.va('event',{name:'match_share',page:'polyc'}); },'image/png'); }); }
+function downloadMatch(){ drawMatchCard(c=>{ const a=document.createElement('a'); a.download='zr-match.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'match_save',page:'polyc'}); if(lastM) logSheet({type:'namegen',event:'match_save',name:lastM.a+' × '+lastM.b,chosung:String(lastM.score),language:'ko',page:'match'}); }); }
+function shareMatch(){
+  if(window.va) window.va('event',{name:'match_share',page:'polyc'});
+  if(lastM) logSheet({type:'namegen',event:'match_share',name:lastM.a+' × '+lastM.b,chosung:String(lastM.score),language:'ko',page:'match'});
+  if(matchFile && navigator.canShare && navigator.canShare({files:[matchFile]})){
+    navigator.share({files:[matchFile], text:(lastM?lastM.a+' ♥ '+lastM.b+' '+lastM.score+'점 ':'')+'🍶 @zr.makgeolli'}).catch(()=>{});
+  } else { downloadMatch(); }
+}
 $('m-save').addEventListener('click',downloadMatch);
 $('m-share').addEventListener('click',shareMatch);
 </script>
