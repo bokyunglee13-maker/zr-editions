@@ -1,38 +1,43 @@
-# ZR Editions — ㅈㄹ막걸리 팝업 아카이브
+# ZR Editions — ㅈㄹ막걸리 × POLYC
 
 ㅈㄹ막걸리의 팝업/콜라보 행사를 **에디션(VOL.)** 단위로 누적하는 사이트.
-두타몰 사이트(`zr-makgeolli`)와 **별도 레포 / 별도 배포**로 운영한다.
+두타몰 사이트(`../zr_makgeolli`)와 **별도 레포 / 별도 배포**다.
 
-## 톤
-- **Pastel Lilac** 디자인 시스템 — POLYC 콜라보 막걸리 라벨에서 추출한 파스텔 보라.
-- 두타몰의 "Kinetic Pink"(브루탈/핑크)와 의도적으로 분리. 갤러리·에디토리얼 무드.
-- 컬러 토큰: `--lav-bg #F3EEFB` · `--wisteria #B9A7E6` · `--violet #7A5CD0` · `--peri #5C7CDA` · `--cobalt #2E3192` · 포인트 `--magenta/#pink/#teal/#marigold`.
+- 🔗 라이브: https://zr-editions.vercel.app
+- 📦 GitHub: `bokyunglee13-maker/zr-editions`
+- 📄 상세: [PRD.md](PRD.md) · [DESIGN.md](DESIGN.md)
 
-## 현재 단계 — Phase 1
-- `index.html` — **VOL.02 POLYC 개인전 《비단일 非單一 Not Single》 콜라보** 랜딩 1장.
-  - HERO(키비주얼 학+호) / 전시 정보(포스터) / **작가 소개**(POLYC 글로벌 아티스트·BTS·타투이스트 권은비) / **두 한정 에디션**(학호도·서울야경) / 현장 체험 / **이름 초성 생성기**(보라 리스킨) / 방문 / 푸터.
-  - 두타몰의 초성 생성기(`/assets/chosung.js`, `window.toChosung`)를 보라 카드(1080×1920 Canvas)로 재사용. 카드 일러스트 = `tiger.png`.
-- 행사 정보는 `index.html` 상단 **`EXHIBIT` CONFIG 블록**에서만 수정.
-- 전시: 비단일 非單一 Not Single · POLYC 개인전 · 2026.06.20–06.28 · 플라츠2(PLATZ 2) · 서울 성동구 뚝섬로17길 35 · 11:00–20:00.
+## 폴더 관계 (중요)
+```
+claude_projects\
+├── zr_makgeolli\   ← 두타몰 사이트(원본). github zr_makgeolli → zr-makgeolli.vercel.app  ※ 건드리지 말 것
+└── zr-editions\    ← 이 프로젝트. github zr-editions → zr-editions.vercel.app
+```
+에디션 사이트 수정·배포는 **무조건 `zr-editions` 폴더에서**.
 
-### 이미지 매핑 (`/assets/`)
-- `kv.png`(히어로 키비주얼) · `poster.png`(전시 포스터) · `ed-hakhodo.png`/`hakhodo-bottle.png`/`hakhodo-art.png`/`tiger.png`/`crane.png`(학호도) · `ed-seoul.png`/`seoul-bottle.png`/`seoul-art.png`(서울야경).
+## 현재 — Phase 1 (VOL.02 POLYC 《비단일 非單一 Not Single》)
+- `index.html` 단일 파일. 다국어 ko·en·ja·zh, 언어토글.
+- 섹션: HERO(GLOBAL ARTIST POLYC EDITION) → ABOUT → MEANING(키네틱) → EXHIBITION → ARTIST → EDITIONS(학호도·서울의 조각들) → TASTE → NAME(초성 생성기) → MATCH(궁합, ko 전용) → VISIT → FOOTER(카카오채널).
+- 전시: 2026.06.20–06.28 · 플라츠2(PLATZ 2) · 서울 성동구 뚝섬로17길 35 · 11:00–20:00.
+- 행사 사실값은 `index.html` 상단 `EXHIBIT` 블록, 카피/번역은 `I18N` 사전.
 
-### 확인 필요 TODO
-- **작가 협업 문구**: BTS·타투이스트 권은비 관련 구체 표현은 사실 확인 전이라 일반 표현으로 작성됨 → 정확한 협업 내용 확정 시 `#artist` 섹션 교체.
-- **주소 불일치**: 포스터 이미지에는 "PLATZ A / 연무장길 126"으로 보이나, 본문은 사용자 제공 "플라츠2 / 뚝섬로17길 35" 사용 → 최종 확인 필요.
-- `assets/label.jpg`,`g1~g6.jpg`,`styling.jpg`,`makku.jpg` = 두타몰 잔여 자산. 현재 미사용 → 정리 가능.
+## 기능
+- **이름 초성 생성기**: `window.toChosung`(`/assets/chosung.js`) → 스토리 카드(호랑이/학 이름별 랜덤). 저장/공유(Web Share).
+- **이름 궁합**: 한글 획수 알고리즘 → 스토리 카드(동물 일러스트). 한국어 전용.
+- **공유**: 결과 생성 시 이미지 미리 굽기(`nameFile`/`matchFile`) → 공유 클릭 시 `navigator.share` 동기 호출(모바일 카톡·인스타 시트). 데스크톱은 저장 폴백.
+- **로깅**: 두타몰과 동일 Apps Script `namegen` 시트(`EXHIBIT.webappUrl`), `page=polyc/match`로 구분 + Vercel Analytics.
 
-## 다음 단계 — Phase 2 (아카이브 홈)
-- 홈(`/`)을 **RECENT EDITIONS** 아카이브로 전환 (레퍼런스: WOOMUL 스타일 VOL 카드).
-- 데이터 모델: `edition { vol, title, venue, dateStart, dateEnd, partner, posterImg, accentColor, slug }`.
-- 각 행사 = `/editions/[slug]`. VOL.01 두타몰 → VOL.02 POLYC … 누적.
-- "다음 에디션 알림 신청" CTA (현재 푸터에 자리만 잡아둠).
-- 이름 궁합(`match`)·인스타 공유 카드 추가 리스킨도 이 단계에서.
+## 이미지 자산 (`/assets/`)
+`kv.png`(히어로) · `poster.png`(포스터) · `ed-hakhodo.png`/`tiger.png`(학호도) · `ed-seoul.png`(서울의 조각들) · `crane.png`(학) · `chosung.js`.
 
 ## 로컬 미리보기
-상위 `zr_makgeolli/.claude/serve-editions.cjs` (port 5520)로 정적 서빙.
+상위 `../zr_makgeolli/.claude/serve-editions.cjs` (port 5520, root=../zr-editions) 정적 서빙.
 
 ## 배포
-- Vercel 새 프로젝트로 이 폴더 연결. `vercel.json`에 `/polyc`, `/name` rewrite.
-- OG 메타의 도메인(`zr-editions.vercel.app`)은 실제 배포 도메인으로 교체.
+- `git push origin main` (소스 백업) → `vercel --prod` (라이브). **자동배포 연결 안 함** — 수정 후 명시적으로 배포.
+
+## 미확정 / TODO
+PRD.md §6 참고: 작가 협업 문구 확정, 포스터 주소 표기, 노리개 자산, OG 도메인.
+
+## Phase 2 (예정)
+홈을 RECENT EDITIONS 아카이브로. `edition{vol,title,venue,...,slug}` → `/editions/[slug]`. VOL.01 두타몰 → VOL.02 POLYC … 누적.
