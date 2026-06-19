@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ㅈㄹ막걸리 × POLYC — 성수 개인전 콜라보</title>
-<meta name="description" content="ㅈㄹ막걸리 × POLYC 성수 개인전 콜라보. 2026.06.21–06.28. 파스텔 보라 라벨, 한정 막걸리, 현장 체험." />
+<title>비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC</title>
+<meta name="description" content="POLYC 개인전 《비단일 非單一 · Not Single》 × ㅈㄹ막걸리. 2026.06.20–06.28, 플라츠2(성수). 학호도·서울야경 한정 에디션 막걸리." />
 
 <!-- 링크 공유 미리보기 -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="ZR Makgeolli × POLYC" />
-<meta property="og:title" content="ㅈㄹ막걸리 × POLYC — 성수 개인전 콜라보" />
-<meta property="og:description" content="2026.06.21–06.28 · POLYC 성수. 파스텔 보라 막걸리 라벨 콜라보." />
-<meta property="og:image" content="https://zr-editions.vercel.app/assets/og.jpg" />
+<meta property="og:title" content="비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC" />
+<meta property="og:description" content="POLYC 개인전 × ㅈㄹ막걸리. 2026.06.20–06.28 · 플라츠2 성수. 학호도·서울야경 한정 에디션." />
+<meta property="og:image" content="https://zr-editions.vercel.app/assets/kv.png" />
 <meta property="og:url" content="https://zr-editions.vercel.app/" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://zr-editions.vercel.app/assets/og.jpg" />
+<meta name="twitter:image" content="https://zr-editions.vercel.app/assets/kv.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,19 +22,20 @@
 
 <!-- ===========================================================
      CONFIG — 행사 정보. 이 블록만 채우면 전체 페이지에 반영됩니다.
-     (※ TODO 항목은 실제 정보로 교체하세요)
 =========================================================== -->
 <script>
   const EXHIBIT = {
-    vol:       "VOL. 02",
-    title:     "전시 제목",                 // TODO: 개인전 제목
-    artist:    "작가명",                    // TODO: 작가 이름
-    dateLabel: "2026.06.21 – 06.28",
-    venue:     "POLYC 성수",
-    address:   "서울 성동구 (주소 입력)",     // TODO: POLYC 정확한 주소
-    hours:     "매일 12:00 – 20:00",        // TODO: 운영시간 확인
-    mapUrl:    "https://map.naver.com/p/search/POLYC%20성수",
-    instaUrl:  "https://www.instagram.com/zr.makgeolli/"
+    vol:        "VOL. 02",
+    title:      "비단일",
+    titleHanja: "非單一",
+    titleEn:    "Not Single",
+    artist:     "POLYC",
+    dateLabel:  "2026.06.20 – 06.28",
+    venue:      "플라츠2 (PLATZ 2)",
+    address:    "서울시 성동구 뚝섬로17길 35",
+    hours:      "11:00 – 20:00",
+    mapUrl:     "https://map.naver.com/p/search/플라츠2%20성수",
+    instaUrl:   "https://www.instagram.com/zr.makgeolli/"
   };
 </script>
 
@@ -53,18 +54,10 @@
      PASTEL LILAC — 디자인 토큰 (POLYC 콜라보 라벨에서 추출)
   =========================================================== */
   :root{
-    --lav-bg:  #F3EEFB;   /* 페이지 배경 */
-    --lilac:   #E4DAF6;   /* 카드/섹션 면 */
-    --wisteria:#B9A7E6;   /* 히어로 면 */
-    --violet:  #7A5CD0;   /* 메인 포인트/버튼 */
-    --peri:    #5C7CDA;   /* CTA(이미지2 톤) */
-    --cobalt:  #2E3192;   /* 딥 섹션 배경 */
-    --magenta: #D46AAE;   /* 라벨 포인트 */
-    --pink:    #EBB3D4;   /* 소프트 포인트 */
-    --teal:    #2FA7A0;   /* 소량 포인트 */
-    --marigold:#F2C24A;   /* 소량 포인트 */
-    --ink:     #2A2350;   /* 텍스트 */
-    --white:   #FFFFFF;
+    --lav-bg:  #F3EEFB; --lilac:#E4DAF6; --wisteria:#B9A7E6;
+    --violet:  #7A5CD0; --peri:#5C7CDA; --cobalt:#2E3192;
+    --magenta: #D46AAE; --pink:#EBB3D4; --teal:#2FA7A0; --marigold:#F2C24A;
+    --ink:#2A2350; --white:#FFFFFF;
     --display:'Archivo','Paperlogy',sans-serif;
     --mono:'Space Mono','Paperlogy',ui-monospace,monospace;
     --body:'Inter','Paperlogy','Apple SD Gothic Neo',sans-serif;
@@ -101,51 +94,61 @@
   /* ---------- HERO ---------- */
   .hero{ min-height:100vh; display:flex; align-items:center; padding:120px 0 60px;
     background:radial-gradient(120% 90% at 80% 10%, var(--wisteria) 0%, var(--lilac) 45%, var(--lav-bg) 100%); }
-  .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:48px; align-items:center; }
+  .hero-grid{ display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:center; }
   .hero .eyebrow{ margin-bottom:18px; }
-  .hero h1{ font-size:clamp(40px,7vw,78px); margin-bottom:18px; }
-  .hero h1 .x{ color:var(--magenta); }
-  .hero .sub{ font-size:clamp(16px,2vw,20px); max-width:30ch; margin-bottom:14px; color:var(--ink); }
+  .hero h1{ font-size:clamp(40px,7vw,72px); margin-bottom:10px; }
+  .hero h1 .hanja{ color:var(--magenta); font-weight:700; }
+  .hero .en{ font-family:var(--mono); font-size:clamp(15px,2vw,18px); letter-spacing:.14em; text-transform:uppercase; color:var(--cobalt); margin-bottom:18px; }
+  .hero .sub{ font-size:clamp(16px,2vw,19px); max-width:32ch; margin-bottom:12px; }
   .hero .meta{ font-family:var(--mono); font-size:14px; letter-spacing:.04em; color:var(--violet); margin-bottom:28px; }
   .hero-art{ position:relative; }
   .hero-art img{ width:100%; border-radius:20px; box-shadow:0 30px 60px rgba(46,49,146,.22); }
-  .hero-art .tag{ position:absolute; bottom:-14px; left:50%; transform:translateX(-50%); white-space:nowrap;
-    background:var(--cobalt); color:#fff; font-family:var(--mono); font-size:12px; letter-spacing:.1em; padding:8px 18px; border-radius:999px; }
-  @media(max-width:820px){ .hero-grid{ grid-template-columns:1fr; gap:36px; text-align:left; } .hero-art{ order:-1; max-width:420px; } }
+  @media(max-width:820px){ .hero-grid{ grid-template-columns:1fr; gap:32px; } .hero-art{ order:-1; max-width:460px; } }
 
   /* ---------- 섹션 공통 ---------- */
   section.pad{ padding:88px 0; }
   .sec-head{ margin-bottom:36px; }
   .sec-head .eyebrow{ display:block; margin-bottom:12px; }
   .sec-head h2{ font-size:clamp(28px,4.5vw,46px); }
+  .sec-head p.lead{ color:#5a527e; margin-top:12px; max-width:54ch; font-size:16px; }
 
   /* ---------- 전시 정보 카드 ---------- */
   .info-card{ background:var(--white); border-radius:24px; padding:40px; border:1px solid rgba(122,92,208,.14);
     box-shadow:0 20px 40px rgba(122,92,208,.10); display:grid; grid-template-columns:auto 1fr; gap:34px; align-items:center; }
   .info-card .vol{ font-family:var(--mono); font-weight:700; color:var(--violet); letter-spacing:.12em; font-size:14px; }
-  .info-card h3{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(26px,4vw,40px); margin:6px 0 4px; }
+  .info-card h3{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(26px,4vw,40px); margin:6px 0 2px; }
+  .info-card h3 .hj{ color:var(--magenta); font-weight:700; font-size:.7em; margin-left:8px; }
   .info-card .artist{ font-size:17px; color:var(--magenta); margin-bottom:22px; }
   .info-rows{ display:grid; gap:12px; }
   .info-rows .row{ display:flex; gap:14px; font-size:15px; }
   .info-rows .row b{ font-family:var(--mono); font-size:12px; letter-spacing:.08em; text-transform:uppercase; color:var(--violet); min-width:78px; padding-top:2px; }
-  .poster{ width:230px; aspect-ratio:3/4; object-fit:cover; border-radius:16px; box-shadow:0 16px 32px rgba(46,49,146,.20); }
-  @media(max-width:680px){ .info-card{ grid-template-columns:1fr; gap:24px; padding:28px; } .poster{ width:100%; max-width:280px; } }
+  .poster{ width:250px; aspect-ratio:3/4; object-fit:cover; border-radius:16px; box-shadow:0 16px 32px rgba(46,49,146,.20); }
+  @media(max-width:680px){ .info-card{ grid-template-columns:1fr; gap:24px; padding:28px; } .poster{ width:100%; max-width:300px; margin:0 auto; } }
 
-  /* ---------- 콜라보 스토리 ---------- */
-  .story{ background:var(--cobalt); color:#fff; }
-  .story .eyebrow{ color:var(--wisteria); }
-  .story h2{ color:#fff; }
-  .story p{ font-size:clamp(16px,2.1vw,20px); max-width:60ch; color:#E9E4FB; margin-bottom:18px; }
-  .story .chips{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
-  .story .chip{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); }
+  /* ---------- 작가 소개 (딥 섹션) ---------- */
+  .artist-sec{ background:var(--cobalt); color:#fff; }
+  .artist-sec .eyebrow{ color:var(--wisteria); }
+  .artist-sec h2{ color:#fff; }
+  .artist-sec p{ font-size:clamp(16px,2.1vw,20px); max-width:60ch; color:#E9E4FB; margin-bottom:18px; }
+  .credits{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .credit{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; padding:8px 16px; border-radius:999px; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.22); }
 
-  /* ---------- 라벨 갤러리 ---------- */
-  .gallery{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
-  .gallery img{ width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:16px; }
-  .gallery img:first-child{ grid-row:span 2; aspect-ratio:auto; height:100%; }
-  @media(max-width:680px){ .gallery{ grid-template-columns:repeat(2,1fr); } .gallery img:first-child{ grid-row:span 1; aspect-ratio:1/1; } }
+  /* ---------- 에디션 소개 ---------- */
+  .ed-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .ed{ background:var(--white); border:1px solid rgba(122,92,208,.14); border-radius:24px; overflow:hidden; box-shadow:0 16px 36px rgba(122,92,208,.10); }
+  .ed .ed-img{ background:var(--wisteria); }
+  .ed .ed-img img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .ed .ed-body{ padding:28px 28px 32px; }
+  .ed .ed-no{ font-family:var(--mono); font-weight:700; color:var(--violet); font-size:12px; letter-spacing:.12em; }
+  .ed h3{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:26px; margin:8px 0 2px; }
+  .ed h3 .hj{ color:var(--magenta); font-weight:700; font-size:.62em; margin-left:8px; }
+  .ed .ed-en{ font-family:var(--mono); font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#9a92bf; margin-bottom:14px; }
+  .ed p{ font-size:15px; color:#5a527e; }
+  .ed .ed-spec{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .ed .ed-spec span{ font-family:var(--mono); font-size:11px; letter-spacing:.04em; padding:6px 12px; border-radius:999px; background:var(--lilac); color:var(--cobalt); }
+  @media(max-width:680px){ .ed-grid{ grid-template-columns:1fr; } }
 
-  /* ---------- 체험 ---------- */
+  /* ---------- 현장 체험 ---------- */
   .exp-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
   .exp{ background:var(--lilac); border-radius:20px; padding:28px; }
   .exp .n{ font-family:var(--mono); font-weight:700; color:var(--violet); font-size:13px; letter-spacing:.1em; }
@@ -183,7 +186,6 @@
   footer .fnext{ margin:26px 0 8px; }
   footer .fsns{ font-family:var(--mono); font-size:13px; letter-spacing:.06em; color:var(--wisteria); text-decoration:none; }
 
-  /* 스토리 카드 캔버스(숨김 렌더용) */
   #card-canvas{ display:none; }
 </style>
 </head>
@@ -194,7 +196,8 @@
   <a href="#top" class="logo">ㅈㄹ막걸리 <span style="color:var(--magenta)">×</span> POLYC</a>
   <div class="navlinks">
     <a href="#about">ABOUT</a>
-    <a href="#label">LABEL</a>
+    <a href="#artist">ARTIST</a>
+    <a href="#editions">EDITIONS</a>
     <a href="#name">NAME</a>
     <a href="#visit">VISIT</a>
     <a href="#" class="iglink" id="nav-ig" target="_blank" rel="noopener">INSTAGRAM</a>
@@ -206,17 +209,17 @@
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow" id="hero-vol">VOL. 02 · POLYC × ZR MAKGEOLLI</span>
-      <h1 class="display kr-head">ㅈㄹ막걸리 <span class="x">×</span> <span id="hero-venue">POLYC 성수</span></h1>
-      <p class="sub" id="hero-title">개인전과 함께 빚은 파스텔 보라 한정 막걸리.</p>
-      <p class="meta" id="hero-meta">2026.06.21 – 06.28 · POLYC 성수</p>
+      <h1 class="display kr-head"><span id="hero-title">비단일</span> <span class="hanja" id="hero-hanja">非單一</span></h1>
+      <div class="en" id="hero-en">NOT SINGLE</div>
+      <p class="sub">POLYC 개인전과 함께 빚은 파스텔 보라 한정 에디션 막걸리.</p>
+      <p class="meta" id="hero-meta">2026.06.20 – 06.28 · 플라츠2 성수</p>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a href="#visit" class="btn btn--violet">오시는 길 →</a>
-        <a href="#name" class="btn btn--ghost">내 이름 초성 막걸리</a>
+        <a href="#editions" class="btn btn--ghost">에디션 보기</a>
       </div>
     </div>
     <div class="hero-art">
-      <img src="/assets/label.jpg" alt="ㅈㄹ막걸리 × POLYC 콜라보 라벨" />
-      <span class="tag">COLLAB LABEL · 한정판</span>
+      <img src="/assets/kv.png" alt="ㅈㄹ막걸리 × POLYC 비단일 키비주얼 — 학과 호랑이" />
     </div>
   </div>
 </section>
@@ -229,55 +232,73 @@
       <h2 class="display kr-head">이번 에디션</h2>
     </div>
     <div class="info-card">
-      <img class="poster" src="/assets/label.jpg" alt="전시 포스터" id="poster-img" />
+      <img class="poster" src="/assets/poster.png" alt="POLYC 비단일 전시 포스터" />
       <div>
         <div class="vol" id="info-vol">VOL. 02</div>
-        <h3 id="info-title">전시 제목</h3>
-        <div class="artist" id="info-artist">작가명 개인전</div>
+        <h3><span id="info-title">비단일</span><span class="hj" id="info-hanja">非單一</span></h3>
+        <div class="artist" id="info-artist">POLYC 개인전 · Not Single</div>
         <div class="info-rows">
-          <div class="row"><b>Date</b><span id="info-date">2026.06.21 – 06.28</span></div>
-          <div class="row"><b>Venue</b><span id="info-venue">POLYC 성수</span></div>
-          <div class="row"><b>Address</b><span id="info-address">서울 성동구 (주소 입력)</span></div>
-          <div class="row"><b>Hours</b><span id="info-hours">매일 12:00 – 20:00</span></div>
+          <div class="row"><b>Date</b><span id="info-date">2026.06.20 – 06.28</span></div>
+          <div class="row"><b>Venue</b><span id="info-venue">플라츠2 (PLATZ 2)</span></div>
+          <div class="row"><b>Address</b><span id="info-address">서울시 성동구 뚝섬로17길 35</span></div>
+          <div class="row"><b>Hours</b><span id="info-hours">11:00 – 20:00</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= 콜라보 스토리 ================= -->
-<section class="pad story">
+<!-- ================= 작가 소개 ================= -->
+<section class="pad artist-sec" id="artist">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">Collaboration</span>
-      <h2 class="display kr-head">작가의 그림이 라벨이 되기까지</h2>
+      <span class="eyebrow">Artist</span>
+      <h2 class="display kr-head">POLYC — 글로벌 아티스트</h2>
     </div>
-    <p>POLYC에서 열리는 <b id="story-artist">작가명</b>의 개인전과 ㅈㄹ막걸리가 만났습니다.
-       전시의 색과 결을 그대로 담아, 파스텔 보라 톤의 한정판 막걸리 라벨을 함께 빚었어요.</p>
-    <p>호랑이와 전통 매듭, 보라빛 결이 어우러진 이번 라벨은 전시 기간 동안 POLYC 성수에서만 만날 수 있습니다.
-       <span style="color:#fff;">가볍게, 위트있게 — 그림 한 점과 막걸리 한 잔.</span></p>
-    <div class="chips">
-      <span class="chip">춘천쌀 100%</span>
-      <span class="chip">인공감미료 ZERO</span>
-      <span class="chip">ALC 7%</span>
-      <span class="chip">한정 라벨</span>
+    <p>POLYC는 강렬한 색채와 한국 전통 도상을 현대적으로 재해석하는 글로벌 아티스트입니다.
+       BTS를 비롯한 글로벌 아티스트, 타투이스트 권은비 등 다양한 분야와 작업을 이어왔습니다.</p>
+    <p>개인전 <b style="color:#fff;">《비단일 非單一 · Not Single》</b>에서는 회화와 막걸리 라벨을 가로질러,
+       하나로 규정되지 않는 다층적인 세계를 ㅈㄹ막걸리와 함께 펼칩니다.</p>
+    <div class="credits">
+      <span class="credit">BTS</span>
+      <span class="credit">타투이스트 권은비</span>
+      <span class="credit">글로벌 아티스트 협업</span>
+      <span class="credit">전통 도상 재해석</span>
     </div>
   </div>
 </section>
 
-<!-- ================= 라벨 갤러리 ================= -->
-<section class="pad" id="label">
+<!-- ================= 에디션 소개 ================= -->
+<section class="pad" id="editions">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">The Label</span>
-      <h2 class="display kr-head">콜라보 라벨</h2>
+      <span class="eyebrow">Limited Editions</span>
+      <h2 class="display kr-head">두 개의 한정 에디션</h2>
+      <p class="lead">POLYC의 그림이 라벨이 된 ㅈㄹ막걸리 콜라보 에디션. 전시 기간 동안 플라츠2에서만 만날 수 있어요.</p>
     </div>
-    <div class="gallery">
-      <img src="/assets/label.jpg" alt="콜라보 라벨" />
-      <img src="/assets/g1.jpg" alt="" />
-      <img src="/assets/g2.jpg" alt="" />
-      <img src="/assets/styling.jpg" alt="" />
-      <img src="/assets/g4.jpg" alt="" />
+    <div class="ed-grid">
+      <div class="ed">
+        <div class="ed-img"><img src="/assets/ed-hakhodo.png" alt="학호도 에디션 막걸리" /></div>
+        <div class="ed-body">
+          <div class="ed-no">EDITION 01</div>
+          <h3>학호도<span class="hj">鶴虎圖</span></h3>
+          <div class="ed-en">Crane &amp; Tiger</div>
+          <p>학(鶴)과 호랑이(虎)를 함께 담은 전통 민화를 POLYC의 색으로 재해석했습니다.
+             상서로운 학과 기개의 호랑이, 그리고 전통 매듭이 보랏빛 결 위에 어우러져요.</p>
+          <div class="ed-spec"><span>춘천쌀 100%</span><span>ALC 7%</span><span>650ML</span></div>
+        </div>
+      </div>
+      <div class="ed">
+        <div class="ed-img"><img src="/assets/ed-seoul.png" alt="서울야경 에디션 막걸리" /></div>
+        <div class="ed-body">
+          <div class="ed-no">EDITION 02</div>
+          <h3>서울야경<span class="hj">夜景</span></h3>
+          <div class="ed-en">Seoul Night View</div>
+          <p>네온빛 다리와 타워, 한강의 밤 — 서울의 야경을 팝아트로 옮긴 에디션.
+             도시의 빛이 라벨 위에서 반짝이는, 가장 서울다운 한 병입니다.</p>
+          <div class="ed-spec"><span>춘천쌀 100%</span><span>ALC 7%</span><span>650ML</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -290,10 +311,9 @@
       <h2 class="display kr-head">현장에서</h2>
     </div>
     <div class="exp-grid">
-      <div class="exp"><div class="n">01</div><h4>한정 막걸리</h4><p>콜라보 라벨 한정판을 전시장에서 만나보세요.</p></div>
+      <div class="exp"><div class="n">01</div><h4>한정 에디션 막걸리</h4><p>학호도·서울야경 콜라보 라벨 한정판을 전시장에서 만나보세요.</p></div>
       <div class="exp"><div class="n">02</div><h4>시음</h4><p>춘천쌀 100%, 인공감미료 없는 ㅈㄹ막걸리 한 잔.</p></div>
-      <div class="exp"><div class="n">03</div><h4>막꾸</h4><p>나만의 막걸리 키링을 직접 꾸며요.</p></div>
-      <div class="exp"><div class="n">04</div><h4>이름 초성 막걸리</h4><p>내 이름으로 만드는 초성 라벨 카드, 인스타에 공유.</p></div>
+      <div class="exp"><div class="n">03</div><h4>이름 초성 막걸리</h4><p>내 이름으로 만드는 초성 라벨 카드, 인스타에 공유.</p></div>
     </div>
   </div>
 </section>
@@ -325,14 +345,14 @@
     <div class="visit-grid">
       <div class="visit-card">
         <span class="eyebrow">Where</span>
-        <div class="big" id="visit-venue">POLYC 성수</div>
-        <p id="visit-address">서울 성동구 (주소 입력)</p>
+        <div class="big" id="visit-venue">플라츠2 (PLATZ 2)</div>
+        <p id="visit-address">서울시 성동구 뚝섬로17길 35</p>
         <p style="margin-top:14px;"><a class="btn btn--peri" id="visit-map" href="#" target="_blank" rel="noopener">네이버 지도 →</a></p>
       </div>
       <div class="visit-card">
         <span class="eyebrow">When</span>
-        <div class="big" id="visit-date">2026.06.21 – 06.28</div>
-        <p id="visit-hours">매일 12:00 – 20:00 · 무료 입장</p>
+        <div class="big" id="visit-date">2026.06.20 – 06.28</div>
+        <p id="visit-hours">11:00 – 20:00 · 무료 입장</p>
       </div>
     </div>
   </div>
@@ -342,7 +362,7 @@
 <footer>
   <div class="wrap">
     <div class="flogo kr-head">ㅈㄹ막걸리 × POLYC</div>
-    <p>DRINK HAPPY NOT HEAVY</p>
+    <p>DRINK HAPPY, NOT HEAVY</p>
     <div class="fnext">
       <a href="#" class="btn btn--peri" id="foot-next">다음 에디션 알림 신청 →</a>
     </div>
@@ -358,20 +378,22 @@
   (function fill(){
     const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
     set('hero-vol', EXHIBIT.vol + ' · POLYC × ZR MAKGEOLLI');
-    set('hero-meta', EXHIBIT.dateLabel + ' · ' + EXHIBIT.venue);
+    set('hero-title', EXHIBIT.title);
+    set('hero-hanja', EXHIBIT.titleHanja);
+    set('hero-en', EXHIBIT.titleEn.toUpperCase());
+    set('hero-meta', EXHIBIT.dateLabel + ' · ' + EXHIBIT.venue.replace(/\s*\(.*\)/,'') );
     set('info-vol', EXHIBIT.vol);
     set('info-title', EXHIBIT.title);
-    set('info-artist', EXHIBIT.artist + ' 개인전');
+    set('info-hanja', EXHIBIT.titleHanja);
+    set('info-artist', EXHIBIT.artist + ' 개인전 · ' + EXHIBIT.titleEn);
     set('info-date', EXHIBIT.dateLabel);
     set('info-venue', EXHIBIT.venue);
     set('info-address', EXHIBIT.address);
     set('info-hours', EXHIBIT.hours);
-    set('story-artist', EXHIBIT.artist);
     set('visit-venue', EXHIBIT.venue);
     set('visit-address', EXHIBIT.address);
     set('visit-date', EXHIBIT.dateLabel);
     set('visit-hours', EXHIBIT.hours + ' · 무료 입장');
-    document.getElementById('hero-venue').textContent = EXHIBIT.venue;
     ['nav-ig','foot-ig'].forEach(id=>{ const a=document.getElementById(id); if(a) a.href=EXHIBIT.instaUrl; });
     document.getElementById('visit-map').href = EXHIBIT.mapUrl;
     document.getElementById('foot-next').href = EXHIBIT.instaUrl;
@@ -406,31 +428,26 @@
   function drawCard(cb){
     const c = document.getElementById('card-canvas'); const x = c.getContext('2d');
     const W=1080, H=1920;
-    // 배경 그라데이션 (위스테리아 → 라일락)
     const g = x.createLinearGradient(0,0,0,H);
     g.addColorStop(0,'#B9A7E6'); g.addColorStop(.55,'#E4DAF6'); g.addColorStop(1,'#F3EEFB');
     x.fillStyle=g; x.fillRect(0,0,W,H);
-    // 상단 라벨
-    x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace'; x.textAlign='center';
-    x.fillText('ZR MAKGEOLLI × POLYC', W/2, 180);
+    x.textAlign='center';
+    x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace';
+    x.fillText('ZR MAKGEOLLI × POLYC', W/2, 170);
     x.fillStyle='#7A5CD0'; x.font='700 26px "Space Mono",monospace';
-    x.fillText('KOREAN ALPHABET VER.', W/2, 230);
-    // 이름
+    x.fillText('비단일 · NOT SINGLE', W/2, 218);
     x.fillStyle='#7A5CD0'; x.font='700 40px "Space Mono",monospace';
-    x.fillText(lastName.toUpperCase(), W/2, 720);
-    // 초성 (대형)
+    x.fillText(lastName.toUpperCase(), W/2, 700);
     x.fillStyle='#2E3192'; x.font='900 220px "Paperlogy","Archivo",sans-serif';
-    x.fillText(lastCho, W/2, 980);
-    // 슬로건
+    x.fillText(lastCho, W/2, 960);
     x.fillStyle='#2A2350'; x.font='700 40px "Paperlogy",sans-serif';
-    x.fillText('내 이름 초성 막걸리', W/2, 1180);
+    x.fillText('내 이름 초성 막걸리', W/2, 1150);
     x.fillStyle='#5a527e'; x.font='400 30px "Inter",sans-serif';
-    x.fillText('DRINK HAPPY NOT HEAVY', W/2, 1240);
-    // 병 이미지
+    x.fillText('DRINK HAPPY, NOT HEAVY', W/2, 1210);
     const img = new Image();
-    img.onload = ()=>{ const iw=540, ih=img.height*(iw/img.width); x.drawImage(img,(W-iw)/2,1300,iw,ih); finish(); };
+    img.onload = ()=>{ const iw=560, ih=img.height*(iw/img.width); x.drawImage(img,(W-iw)/2,1300,iw,ih); finish(); };
     img.onerror = finish;
-    img.src = '/assets/bottle-cut.png';
+    img.src = '/assets/tiger.png';
     function finish(){
       x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace';
       x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel, W/2, H-90);
