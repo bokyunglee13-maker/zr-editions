@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/polyc", "destination": "/index.html" },
+    { "source": "/name", "destination": "/name.html" }
+  ]
+}
