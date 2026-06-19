@@ -26,7 +26,8 @@
   const EXHIBIT = {
     dateLabel: "2026.06.20 – 06.28",
     mapUrl:    "https://map.naver.com/p/search/서울특별시 성동구 뚝섬로17길 35",
-    instaUrl:  "https://www.instagram.com/zr.makgeolli/"
+    instaUrl:  "https://www.instagram.com/zr.makgeolli/",
+    kakaoUrl:  "https://pf.kakao.com/_sxnQXX"
   };
 </script>
 
@@ -58,7 +59,9 @@
 
   /* 네비 */
   nav{ position:fixed; top:0; left:0; right:0; z-index:50; display:flex; align-items:center; justify-content:space-between;
-    padding:12px 24px; backdrop-filter:blur(10px); background:rgba(243,238,251,.74); border-bottom:1px solid rgba(122,92,208,.16); }
+    padding:12px 24px; backdrop-filter:blur(10px); background:rgba(243,238,251,.74); border-bottom:1px solid rgba(122,92,208,.16);
+    transition:transform .3s ease; }
+  nav.nav-hidden{ transform:translateY(-105%); }
   nav .logo{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:17px; color:var(--ink); text-decoration:none; }
   nav .navmid{ display:flex; gap:20px; align-items:center; }
   nav .navmid a{ font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase; text-decoration:none; color:var(--ink); opacity:.7; }
@@ -84,9 +87,11 @@
   .hero .eyebrow{ margin-bottom:18px; }
   .hero h1{ font-size:clamp(40px,7vw,72px); margin-bottom:10px; }
   .hero h1 .hanja{ color:var(--magenta); font-weight:700; }
-  .hero .en{ font-family:var(--mono); font-size:clamp(15px,2vw,18px); letter-spacing:.14em; text-transform:uppercase; color:var(--cobalt); margin-bottom:18px; }
-  .hero .sub{ font-size:clamp(16px,2vw,19px); max-width:34ch; margin-bottom:12px; }
-  .hero .meta{ font-family:var(--mono); font-size:14px; letter-spacing:.04em; color:var(--violet); margin-bottom:28px; }
+  .hero .en{ font-family:var(--mono); font-size:clamp(15px,2vw,18px); letter-spacing:.14em; text-transform:uppercase; color:var(--cobalt); margin-bottom:16px; }
+  .hero .ed-label{ font-family:var(--mono); font-weight:700; font-size:13px; letter-spacing:.12em; text-transform:uppercase; color:var(--magenta); margin-bottom:10px; }
+  .hero .sub{ font-size:clamp(16px,2vw,19px); max-width:36ch; margin-bottom:10px; }
+  .hero .donate{ font-size:13px; color:#7a73a0; max-width:40ch; margin-bottom:22px; line-height:1.5; }
+  .hero .meta{ font-family:var(--mono); font-size:14px; letter-spacing:.04em; color:var(--violet); margin-bottom:26px; }
   .hero-art img{ width:100%; border-radius:20px; box-shadow:0 30px 60px rgba(46,49,146,.22); }
   @media(max-width:820px){ .hero-grid{ grid-template-columns:1fr; gap:32px; } .hero-art{ order:-1; max-width:460px; } }
 
@@ -135,8 +140,8 @@
   /* 에디션 */
   .ed-grid{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
   .ed{ background:var(--white); border:1px solid rgba(122,92,208,.14); border-radius:24px; overflow:hidden; box-shadow:0 16px 36px rgba(122,92,208,.10); }
-  .ed .ed-img{ background:var(--wisteria); }
-  .ed .ed-img img{ width:100%; aspect-ratio:4/5; object-fit:cover; }
+  .ed .ed-img{ background:var(--lilac); display:flex; align-items:center; justify-content:center; }
+  .ed .ed-img img{ width:100%; height:auto; display:block; }
   .ed .ed-body{ padding:28px 28px 32px; }
   .ed .ed-no{ font-family:var(--mono); font-weight:700; color:var(--violet); font-size:12px; letter-spacing:.12em; }
   .ed h3{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:26px; margin:8px 0 2px; }
@@ -233,7 +238,7 @@
     <a href="#meaning">MEANING</a>
     <a href="#editions">EDITIONS</a>
     <a href="#name">NAME</a>
-    <a href="#match">MATCH</a>
+    <a href="#match" id="nav-match">MATCH</a>
     <a href="#visit">VISIT</a>
   </div>
   <div class="lang" id="lang">
@@ -251,7 +256,9 @@
       <span class="eyebrow">VOL. 02 · POLYC × ZR MAKGEOLLI</span>
       <h1 class="display kr-head">비단일 <span class="hanja">非單一</span></h1>
       <div class="en">NOT SINGLE</div>
-      <p class="sub" data-i18n="hero.sub">POLYC 개인전과 함께 빚은<br>파스텔 보라 한정 에디션 막걸리.</p>
+      <div class="ed-label" data-i18n="hero.editionLabel">GLOBAL ARTIST POLYC EDITION</div>
+      <p class="sub" data-i18n="hero.sub">전통을 새롭게 해석한 아트 에디션. 가장 한국적인 술에 가장 현대적인 감각을 담았습니다.</p>
+      <p class="donate" data-i18n="hero.donate">ㅈㄹ 막걸리 POLYC 에디션의 수익금 일부는 한국 전통주의 미래를 위해 기부됩니다.</p>
       <p class="meta" id="hero-meta">2026.06.20 – 06.28 · 플라츠2</p>
       <div style="display:flex; gap:10px; flex-wrap:wrap;">
         <a href="#visit" class="btn btn--violet" data-i18n="hero.cta1">오시는 길 →</a>
@@ -486,7 +493,9 @@ const I18N = {
   ko:{
     "meta.title":"비단일 非單一 Not Single — ㅈㄹ막걸리 × POLYC",
     "meta.desc":"POLYC 개인전 《비단일 非單一 · Not Single》 × ㅈㄹ막걸리. 2026.06.20–06.28, 플라츠2(성수).",
-    "hero.sub":"POLYC 개인전과 함께 빚은<br>파스텔 보라 한정 에디션 막걸리.",
+    "hero.editionLabel":"GLOBAL ARTIST POLYC EDITION",
+    "hero.sub":"전통을 새롭게 해석한 아트 에디션. 가장 한국적인 술에 가장 현대적인 감각을 담았습니다.",
+    "hero.donate":"ㅈㄹ 막걸리 POLYC 에디션의 수익금 일부는 한국 전통주의 미래를 위해 기부됩니다.",
     "hero.cta1":"오시는 길 →","hero.cta2":"에디션 보기",
     "intro.body":"위트있게 만나는 MZ 막걸리. 무겁게 들이켜는 전통주가 아니라, 친구와 깔깔대며 가볍게 기울이는 한 잔. 한글 초성 'ㅈㄹ'을 큼직하게 박은 라벨처럼, 재밌지만 맛은 진지함으로 채웠습니다.",
     "mean.h":"ㅈㄹ, 무슨 뜻일까요?",
@@ -519,7 +528,9 @@ const I18N = {
   en:{
     "meta.title":"Not Single 非單一 — ZR Makgeolli × POLYC",
     "meta.desc":"POLYC solo exhibition 'Not Single 非單一' × ZR Makgeolli. Jun 20–28, 2026, PLATZ 2 (Seongsu).",
-    "hero.sub":"A pastel-purple limited edition makgeolli,<br>brewed alongside POLYC's solo show.",
+    "hero.editionLabel":"GLOBAL ARTIST POLYC EDITION",
+    "hero.sub":"An art edition that reinterprets tradition anew — the most Korean drink with the most contemporary sensibility.",
+    "hero.donate":"A portion of proceeds from the ZR Makgeolli POLYC Edition is donated to the future of Korean traditional liquor.",
     "hero.cta1":"Directions →","hero.cta2":"See Editions",
     "intro.body":"A witty MZ-generation makgeolli. Not a heavy traditional liquor, but a light glass to share and laugh over with friends. Just like its label stamped with the bold Korean letters 'ㅈㄹ' — playful on the outside, dead serious about taste.",
     "mean.h":"What does WTF mean?",
@@ -552,7 +563,9 @@ const I18N = {
   ja:{
     "meta.title":"非單一 Not Single — ㅈㄹマッコリ × POLYC",
     "meta.desc":"POLYC個展『非單一・Not Single』× ㅈㄹマッコリ。2026.06.20–28、PLATZ 2（聖水）。",
-    "hero.sub":"POLYCの個展とともに仕込んだ<br>パステルパープルの限定エディション・マッコリ。",
+    "hero.editionLabel":"GLOBAL ARTIST POLYC EDITION",
+    "hero.sub":"伝統を新しく解釈したアートエディション。最も韓国的な酒に、最も現代的な感覚を込めました。",
+    "hero.donate":"ㅈㄹマッコリ POLYCエディションの収益の一部は、韓国伝統酒の未来のために寄付されます。",
     "hero.cta1":"アクセス →","hero.cta2":"エディションを見る",
     "intro.body":"ウィットに出会うMZ世代のマッコリ。重く飲み干す伝統酒ではなく、友達と笑いながら軽く傾ける一杯。ハングルの頭文字「ㅈㄹ」を大きく配したラベルのように、遊び心はたっぷり、でも味は真剣です。",
     "mean.h":"WTFって、どんな意味？",
@@ -585,7 +598,9 @@ const I18N = {
   zh:{
     "meta.title":"非單一 Not Single — ㅈㄹ马格利酒 × POLYC",
     "meta.desc":"POLYC个展《非單一·Not Single》× ㅈㄹ马格利酒。2026.06.20–28，PLATZ 2（圣水）。",
-    "hero.sub":"与POLYC个展一同酿造的<br>柔粉紫限定版马格利酒。",
+    "hero.editionLabel":"GLOBAL ARTIST POLYC EDITION",
+    "hero.sub":"重新诠释传统的艺术版本。在最具韩国风味的酒中，注入最当代的感觉。",
+    "hero.donate":"ㅈㄹ马格利酒 POLYC 版本的部分收益将捐赠用于韩国传统酒的未来。",
     "hero.cta1":"路线指引 →","hero.cta2":"查看版本",
     "intro.body":"用俏皮相遇的MZ世代马格利酒。它不是要一饮而尽的厚重传统酒，而是和朋友谈笑间轻轻举起的一杯。就像瓶身上大大印着韩文首字母「ㅈㄹ」一样，玩心十足，但对味道很认真。",
     "mean.h":"WTF 是什么意思？",
@@ -662,6 +677,11 @@ function applyLang(lang){
   });
   document.title=dict['meta.title'];
   document.querySelectorAll('.lang button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===lang)));
+  // 궁합(이름 획수)은 한글 전용 → 한국어에서만 노출
+  const matchSec=document.getElementById('match'), navMatch=document.getElementById('nav-match');
+  const showMatch = (lang==='ko');
+  if(matchSec) matchSec.style.display = showMatch ? '' : 'none';
+  if(navMatch) navMatch.style.display = showMatch ? '' : 'none';
   renderKinetic(lang);
 }
 document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>applyLang(b.dataset.lang)));
@@ -673,7 +693,22 @@ document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',
   document.getElementById('visit-date').textContent = EXHIBIT.dateLabel;
   document.getElementById('visit-map').href = EXHIBIT.mapUrl;
   document.getElementById('foot-ig').href = EXHIBIT.instaUrl;
-  document.getElementById('foot-next').href = EXHIBIT.instaUrl;
+  document.getElementById('foot-next').href = EXHIBIT.kakaoUrl;
+})();
+
+/* 스마트 네비 — 아래로 스크롤 숨김 / 위로 스크롤·상단 등장 */
+(function(){
+  const nv=document.querySelector('nav'); if(!nv) return;
+  let lastY=window.scrollY, ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(ticking) return; ticking=true;
+    requestAnimationFrame(()=>{
+      const y=window.scrollY;
+      if(y>140 && y>lastY+4) nv.classList.add('nav-hidden');
+      else if(y<lastY-4 || y<=140) nv.classList.remove('nav-hidden');
+      lastY=y; ticking=false;
+    });
+  },{passive:true});
 })();
 applyLang(LANG);
 
@@ -693,24 +728,23 @@ gform.addEventListener('submit',function(e){
   document.getElementById('share-card').onclick=()=>shareName();
   if(window.va) window.va('event',{name:'name_generate',page:'polyc'});
 });
+/* 이름/이름쌍에 따라 호랑이 또는 학 (deterministic) */
+function pickAnimal(seed){ let s=0; for(const ch of String(seed)) s+=ch.charCodeAt(0); return (s%2===0) ? '/assets/tiger.png' : '/assets/crane.png'; }
 async function drawNameCard(cb){
   const c=document.getElementById('card-canvas'), x=c.getContext('2d'), W=1080,H=1920;
-  try{ await Promise.all([document.fonts.load('900 220px Paperlogy'),document.fonts.load('700 60px Paperlogy')]); await document.fonts.ready; }catch(e){}
+  try{ await Promise.all([document.fonts.load('900 230px Paperlogy'),document.fonts.load('700 44px Paperlogy')]); await document.fonts.ready; }catch(e){}
   const g=x.createLinearGradient(0,0,0,H); g.addColorStop(0,'#B9A7E6'); g.addColorStop(.55,'#E4DAF6'); g.addColorStop(1,'#F3EEFB');
   x.fillStyle=g; x.fillRect(0,0,W,H); x.textAlign='center';
-  x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace'; x.fillText('ZR MAKGEOLLI × POLYC',W/2,170);
-  x.fillStyle='#7A5CD0'; x.font='700 26px "Space Mono",monospace'; x.fillText('비단일 · NOT SINGLE',W/2,218);
-  x.fillStyle='#7A5CD0'; x.font='700 44px Paperlogy'; x.fillText(lastName.toUpperCase(),W/2,700);
-  x.fillStyle='#2E3192'; x.font='900 230px Paperlogy'; x.fillText(lastCho,W/2,970);
-  x.fillStyle='#2A2350'; x.font='900 46px Paperlogy'; x.fillText('내 이름 초성 막걸리',W/2,1180);
+  x.fillStyle='#2E3192'; x.font='700 34px "Space Mono",monospace'; x.fillText('ZR MAKGEOLLI × POLYC',W/2,160);
+  x.fillStyle='#7A5CD0'; x.font='700 30px Paperlogy'; x.fillText('비단일 · NOT SINGLE',W/2,212);
+  x.fillStyle='#7A5CD0'; x.font='700 44px Paperlogy'; x.fillText(lastName.toUpperCase(),W/2,640);
+  x.fillStyle='#2E3192'; x.font='900 230px Paperlogy'; x.fillText(lastCho,W/2,910);
+  x.fillStyle='#2A2350'; x.font='900 46px Paperlogy'; x.fillText('내 이름 초성 막걸리',W/2,1120);
+  x.fillStyle='#5a527e'; x.font='400 30px "Space Mono",monospace'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1180);
+  x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1270);
   const img=new Image();
-  img.onload=()=>{ const iw=300, ih=img.height*(iw/img.width); x.drawImage(img,(W-iw)/2,1280,iw,ih); finish(); };
-  img.onerror=finish; img.src='/assets/tiger.png';
-  function finish(){
-    x.fillStyle='#2E3192'; x.font='700 38px Paperlogy'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1740);
-    x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1800);
-    cb(c);
-  }
+  img.onload=()=>{ const maxW=660,maxH=580, sc=Math.min(maxW/img.width,maxH/img.height), dw=img.width*sc, dh=img.height*sc; x.drawImage(img,(W-dw)/2,1880-dh,dw,dh); cb(c); };
+  img.onerror=()=>cb(c); img.src=pickAnimal(lastName);
 }
 function downloadName(){ drawNameCard(c=>{ const a=document.createElement('a'); a.download='zr-polyc-'+(lastName||'name')+'.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'name_save',page:'polyc'}); }); }
 function shareName(){ drawNameCard(c=>{ c.toBlob(async b=>{ const f=new File([b],'zr-polyc.png',{type:'image/png'}); if(navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],title:'ㅈㄹ막걸리 × POLYC'});}catch(e){} } else downloadName(); if(window.va) window.va('event',{name:'name_share',page:'polyc'}); },'image/png'); }); }
@@ -793,9 +827,15 @@ async function drawMatchCard(cb){
   (function(){ const words=d.bd.msg.split(' '); let line='',y=1020; for(const w of words){ const t=line?line+' '+w:w; if(x.measureText(t).width>W-180&&line){ x.fillText(line,W/2,y); line=w; y+=56; } else line=t; } if(line) x.fillText(line,W/2,y); })();
   x.strokeStyle='#7A5CD0'; x.lineWidth=5; x.strokeRect(160,1180,W-320,46); x.fillStyle='#D46AAE'; x.fillRect(163,1183,(W-326)*d.score/100,40);
   x.fillStyle='#2A2350'; x.font='700 34px Paperlogy'; x.fillText(d.a+' 기준 '+d.sMe+'     '+d.b+' 기준 '+d.sYou,W/2,1320);
-  x.fillStyle='#2E3192'; x.font='700 38px Paperlogy'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1700);
-  x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1760);
-  cb(c);
+  const aimg=new Image();
+  aimg.onload=()=>{ const mW=380,mH=250, sc=Math.min(mW/aimg.width,mH/aimg.height), dw=aimg.width*sc, dh=aimg.height*sc; x.drawImage(aimg,(W-dw)/2,1650-dh,dw,dh); bottom(); };
+  aimg.onerror=bottom; aimg.src=pickAnimal(d.a+d.b);
+  function bottom(){
+    x.textAlign='center';
+    x.fillStyle='#2E3192'; x.font='700 38px Paperlogy'; x.fillText('DRINK HAPPY, NOT HEAVY',W/2,1730);
+    x.fillStyle='#7A5CD0'; x.font='700 30px "Space Mono",monospace'; x.fillText('@zr.makgeolli · '+EXHIBIT.dateLabel,W/2,1790);
+    cb(c);
+  }
 }
 function downloadMatch(){ drawMatchCard(c=>{ const a=document.createElement('a'); a.download='zr-match.png'; a.href=c.toDataURL('image/png'); a.click(); if(window.va) window.va('event',{name:'match_save',page:'polyc'}); }); }
 function shareMatch(){ drawMatchCard(c=>{ c.toBlob(async b=>{ const f=new File([b],'zr-match.png',{type:'image/png'}); if(navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],text:lastM.a+' ♥ '+lastM.b+' '+lastM.score+'점 🍶 @zr.makgeolli'});}catch(e){} } else downloadMatch(); if(window.va) window.va('event',{name:'match_share',page:'polyc'}); },'image/png'); }); }
