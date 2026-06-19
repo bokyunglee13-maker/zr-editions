@@ -186,6 +186,26 @@
   footer .fnext{ margin:26px 0 8px; }
   footer .fsns{ font-family:var(--mono); font-size:13px; letter-spacing:.06em; color:var(--wisteria); text-decoration:none; }
 
+  /* ---------- ABOUT 브랜드 인트로 ---------- */
+  .about-intro .big-cho{ font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(60px,12vw,120px); color:var(--violet); letter-spacing:.04em; line-height:1; margin-bottom:10px; }
+  .about-intro .lead-xl{ font-size:clamp(17px,2.4vw,22px); max-width:62ch; color:var(--ink); line-height:1.75; }
+  .about-intro .lead-xl b{ color:var(--violet); }
+
+  /* ---------- MEANING 키네틱 ---------- */
+  .meaning{ background:var(--cobalt); color:#fff; position:relative; overflow:hidden; }
+  .meaning .eyebrow{ color:var(--wisteria); }
+  .meaning h2{ color:#fff; position:relative; z-index:3; }
+  .mstage{ position:relative; height:420px; margin-top:10px; }
+  .mstage .big{ position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(150px,34vw,360px); color:rgba(185,167,230,.30); letter-spacing:.02em; line-height:1; z-index:1; pointer-events:none; }
+  .mword{ position:absolute; font-family:'Paperlogy',var(--display); font-weight:900; font-size:clamp(18px,2.4vw,30px); color:rgba(255,255,255,.85); z-index:2; animation:mfloat 6s ease-in-out infinite; }
+  @keyframes mfloat{ 0%,100%{ transform:translateY(0); } 50%{ transform:translateY(-12px); } }
+  @media(max-width:680px){ .mstage{ height:360px; } .mword{ font-size:16px; } }
+
+  /* ---------- TASTE 맛 설명 + 제조 포인트 ---------- */
+  .taste .lead-xl{ font-size:clamp(16px,2.2vw,20px); max-width:64ch; color:var(--ink); line-height:1.75; }
+  .taste-spec{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .taste-spec span{ font-family:var(--mono); font-size:12px; letter-spacing:.04em; padding:9px 16px; border-radius:999px; background:var(--lilac); color:var(--cobalt); }
+
   #card-canvas{ display:none; }
 </style>
 </head>
@@ -196,8 +216,9 @@
   <a href="#top" class="logo">ㅈㄹ막걸리 <span style="color:var(--magenta)">×</span> POLYC</a>
   <div class="navlinks">
     <a href="#about">ABOUT</a>
-    <a href="#artist">ARTIST</a>
+    <a href="#meaning">MEANING</a>
     <a href="#editions">EDITIONS</a>
+    <a href="#taste">TASTE</a>
     <a href="#name">NAME</a>
     <a href="#visit">VISIT</a>
     <a href="#" class="iglink" id="nav-ig" target="_blank" rel="noopener">INSTAGRAM</a>
@@ -224,8 +245,45 @@
   </div>
 </section>
 
+<!-- ================= ABOUT — ㅈㄹ막걸리 소개 ================= -->
+<section class="pad about-intro" id="about">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">About ㅈㄹ막걸리</span>
+    </div>
+    <div class="big-cho kr-head">ㅈㄹ막걸리</div>
+    <p class="lead-xl">위트있게 만나는 <b>MZ 막걸리</b>. 무겁게 들이켜는 전통주가 아니라, 친구와 깔깔대며 가볍게 기울이는 한 잔.
+       한글 초성 'ㅈㄹ'을 큼직하게 박은 라벨처럼, 재밌지만 맛은 진지함으로 채웠습니다.</p>
+  </div>
+</section>
+
+<!-- ================= MEANING — ㅈㄹ 뜻 ================= -->
+<section class="pad meaning" id="meaning">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Meaning</span>
+      <h2 class="display kr-head">ㅈㄹ, 무슨 뜻이게요?</h2>
+    </div>
+    <div class="mstage" aria-hidden="true">
+      <div class="big kr-head">ㅈㄹ</div>
+      <span class="mword" style="top:16%; left:10%; animation-delay:0s;">재력</span>
+      <span class="mword" style="top:9%; left:72%; animation-delay:.8s;">자랑</span>
+      <span class="mword" style="top:40%; left:26%; animation-delay:1.6s;">진리</span>
+      <span class="mword" style="top:28%; left:55%; animation-delay:.4s;">지랄</span>
+      <span class="mword" style="top:46%; left:82%; animation-delay:2.2s;">정력</span>
+      <span class="mword" style="top:60%; left:7%; animation-delay:1.2s;">조롱</span>
+      <span class="mword" style="top:70%; left:22%; animation-delay:2.6s;">잘래?</span>
+      <span class="mword" style="top:82%; left:38%; animation-delay:.6s;">졸라</span>
+      <span class="mword" style="top:88%; left:54%; animation-delay:1.9s;">주류</span>
+      <span class="mword" style="top:74%; left:74%; animation-delay:1.0s;">재롱</span>
+    </div>
+    <p style="color:#C9C2EC; font-size:15px; max-width:52ch; margin-top:6px;">정답은 없어요. 보는 사람 마음대로 — 가볍게, 위트있게.
+       <span style="color:#fff;">Call it whatever you want.</span></p>
+  </div>
+</section>
+
 <!-- ================= 전시 정보 ================= -->
-<section class="pad" id="about">
+<section class="pad" id="exhibition">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Exhibition</span>
@@ -303,6 +361,22 @@
   </div>
 </section>
 
+<!-- ================= 맛 설명 + 제조 포인트 ================= -->
+<section class="pad taste" id="taste" style="background:var(--white);">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Taste</span>
+      <h2 class="display kr-head">어떤 맛이냐면</h2>
+    </div>
+    <p class="lead-xl">당일 도정한 춘천쌀 100%에 강원도 물과 누룩만으로 빚어 50일간 저온 숙성했습니다. 인공감미료·첨가물 0%.
+       잘 익은 참외와 멜론을 닮은 풍부한 단맛, 수작업 여과로 완성한 벨벳처럼 부드러운 질감.
+       가볍게 톡 쏘는 청량감과 낮은 도수로 누구나 부담 없이 즐길 수 있습니다.</p>
+    <div class="taste-spec">
+      <span>당일도정 춘천쌀 100%</span><span>인공감미료·첨가물 0%</span><span>50일 저온 숙성</span><span>ALC. 7%</span><span>650ML</span>
+    </div>
+  </div>
+</section>
+
 <!-- ================= 현장 체험 ================= -->
 <section class="pad" style="background:var(--white);">
   <div class="wrap">
@@ -312,8 +386,7 @@
     </div>
     <div class="exp-grid">
       <div class="exp"><div class="n">01</div><h4>한정 에디션 막걸리</h4><p>학호도·서울야경 콜라보 라벨 한정판을 전시장에서 만나보세요.</p></div>
-      <div class="exp"><div class="n">02</div><h4>시음</h4><p>춘천쌀 100%, 인공감미료 없는 ㅈㄹ막걸리 한 잔.</p></div>
-      <div class="exp"><div class="n">03</div><h4>이름 초성 막걸리</h4><p>내 이름으로 만드는 초성 라벨 카드, 인스타에 공유.</p></div>
+      <div class="exp"><div class="n">02</div><h4>이름 초성 막걸리</h4><p>내 이름으로 만드는 초성 라벨 카드, 인스타에 공유.</p></div>
     </div>
   </div>
 </section>
